@@ -3,14 +3,26 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.assignment.HelloController">
   <padding>
     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
   </padding>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
+  <Label text="Welcome to CAB302 GERAJ Application!" />
+  <Label text="Create an account" />
+
+  <GridPane hgap="5.0" vgap="5.0" alignment="CENTER">
+    <Label text="Enter Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <Label text="Enter Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <TextField GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+  </GridPane>
+
+  <Button text="Create your account" onAction="#onCreateAccount" />
+
 </VBox>
