@@ -19,10 +19,11 @@
   <GridPane hgap="5.0" vgap="5.0" alignment="CENTER">
     <Label text="Enter Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
     <Label text="Enter Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-    <TextField GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-    <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <TextField fx:id="usernameTextField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
   </GridPane>
 
   <Button text="Create your account" onAction="#onCreateAccount" />
+  <Label fx:id="messageLabel"/>
 
 </VBox>

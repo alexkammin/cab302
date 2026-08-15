@@ -1,6 +1,8 @@
 module com.example.assignment {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
+    requires de.mkammerer.argon2.nolibs;
 
 
     opens com.example.assignment to javafx.fxml;
