@@ -3,11 +3,20 @@ package com.example.assignment;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import javafx.beans.binding.Bindings;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HelloController {
-    private IAccountDAO accountDAO;
+    private final IAccountDAO accountDAO;
+
+    private static String enteredUsername;
+    private static char[] enteredPassword;
 
     @FXML
     private TextField usernameTextField;
@@ -19,10 +28,16 @@ public class HelloController {
     private Label messageLabel;
 
     @FXML
+    private Button nextButton;
+
+    @FXML
     private Button createAccountButton;
 
     @FXML
     private CheckBox agreeCheckBox;
+
+    @FXML
+    private Button backButton;
 
     public HelloController() {
         accountDAO = new SqliteAccountDAO();
@@ -30,25 +45,59 @@ public class HelloController {
 
     @FXML
     public void initialize() {
-        createAccountButton.disableProperty().bind(
-                Bindings.or(
-                        usernameTextField.textProperty().isEmpty(),
-                        passwordField.textProperty().isEmpty()
-                ).or(agreeCheckBox.selectedProperty().not())
-        );
+
+        // for credentials page
+        if (usernameTextField != null && passwordField != null && nextButton != null) {
+            nextButton.disableProperty().bind(
+                    Bindings.or(
+                            usernameTextField.textProperty().isEmpty(),
+                            passwordField.textProperty().isEmpty()
+                    )
+            );
+        }
+
+        // for tos page
+        if (agreeCheckBox != null && createAccountButton != null) {
+            createAccountButton.disableProperty().bind(
+                    agreeCheckBox.selectedProperty().not()
+            );
+        }
+
     }
 
+    @FXML
+    public void onNext() throws IOException {
+        enteredUsername = usernameTextField.getText().trim();
+        enteredPassword = passwordField.getText().toCharArray();
+
+        Stage stage = (Stage) nextButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tos-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    public void onBackButtonClick(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) backButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("credentials-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        stage.setScene(scene);
+    }
 
     @FXML
     private void onCreateAccount() {
-        String username = usernameTextField.getText().trim();
-        char[] password = passwordField.getText().toCharArray();;
+        if (enteredUsername == null || enteredPassword == null) {
+            if (messageLabel != null) messageLabel.setText("Error: Missing credentials.");
+            return;
+        }
 
-        String hash = hashPassword(password);
-
-        Account newAccount = new Account(username, hash);
-
+        String hash = hashPassword(enteredPassword);
+        Account newAccount = new Account(enteredUsername, hash);
         accountDAO.createAccount(newAccount);
+
+        if (messageLabel != null) {
+            messageLabel.setText("Account successfully created!");
+        }
     }
 
     private String hashPassword(char[] password) {
