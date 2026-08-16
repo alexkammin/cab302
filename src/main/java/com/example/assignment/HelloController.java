@@ -2,6 +2,7 @@ package com.example.assignment;
 
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,16 +13,29 @@ public class HelloController {
     private IAccountDAO accountDAO;
 
     @FXML
-    TextField usernameTextField;
+    private TextField usernameTextField;
 
     @FXML
-    PasswordField passwordField;
+    private PasswordField passwordField;
 
     @FXML
     private Label messageLabel;
 
+    @FXML
+    private Button createAccountButton;
+
     public HelloController() {
         accountDAO = new SqliteAccountDAO();
+    }
+
+    @FXML
+    public void initialize() {
+        createAccountButton.disableProperty().bind(
+                Bindings.or(
+                        usernameTextField.textProperty().isEmpty(),
+                        passwordField.textProperty().isEmpty()
+                )
+        );
     }
 
     @FXML
