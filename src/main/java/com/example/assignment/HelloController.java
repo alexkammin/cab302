@@ -4,10 +4,7 @@ import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class HelloController {
     private IAccountDAO accountDAO;
@@ -24,6 +21,9 @@ public class HelloController {
     @FXML
     private Button createAccountButton;
 
+    @FXML
+    private CheckBox agreeCheckBox;
+
     public HelloController() {
         accountDAO = new SqliteAccountDAO();
     }
@@ -34,9 +34,10 @@ public class HelloController {
                 Bindings.or(
                         usernameTextField.textProperty().isEmpty(),
                         passwordField.textProperty().isEmpty()
-                )
+                ).or(agreeCheckBox.selectedProperty().not())
         );
     }
+
 
     @FXML
     private void onCreateAccount() {
