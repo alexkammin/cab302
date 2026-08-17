@@ -1,7 +1,7 @@
 package com.geraj.assignment.controller;
 
 import com.geraj.assignment.SceneSwitcher;
-import com.geraj.assignment.model.Account;
+import com.geraj.assignment.dto.RegistrationDTO;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,11 +29,11 @@ public class CredentialsController {
         String username = usernameTextField.getText().trim();
         String password = passwordField.getText();
 
-        Account newAccount = new Account(username, password);
+        RegistrationDTO registration = new RegistrationDTO(username, password);
 
         TosController controller = SceneSwitcher.switchScene(actionEvent, "tos-view.fxml");
 
         assert controller != null;
-        controller.setAccountData(newAccount);
+        controller.setRegistrationData(registration);
     }
 }

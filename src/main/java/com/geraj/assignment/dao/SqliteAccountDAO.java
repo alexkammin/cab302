@@ -1,5 +1,6 @@
-package com.geraj.assignment.model;
+package com.geraj.assignment.dao;
 
+import com.geraj.assignment.dto.RegistrationDTO;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import java.sql.Connection;
@@ -31,13 +32,12 @@ public class SqliteAccountDAO implements IAccountDAO {
     }
 
     @Override
-    public void createAccount(Account account) {
+    public void createAccount(RegistrationDTO registration) {
         String query = "INSERT INTO accounts (username, hash) VALUES (?, ?)";
 
-        try {
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, account.getUsername());
-            statement.setString(2, hashPassword(account.getPassword()));
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, registration.getUsername());
+            statement.setString(2, hashPassword(registration.getPassword()));
             statement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

@@ -11,4 +11,6 @@ module com.example.assignment {
     opens com.geraj.assignment.controller to javafx.fxml;
     exports com.geraj.assignment.model;
     opens com.geraj.assignment.model to javafx.fxml;
+    exports com.geraj.assignment.dao;
+    opens com.geraj.assignment.dao to javafx.fxml;
 }

@@ -1,9 +1,9 @@
 package com.geraj.assignment.controller;
 
 import com.geraj.assignment.SceneSwitcher;
-import com.geraj.assignment.model.Account;
-import com.geraj.assignment.model.IAccountDAO;
-import com.geraj.assignment.model.SqliteAccountDAO;
+import com.geraj.assignment.dto.RegistrationDTO;
+import com.geraj.assignment.dao.IAccountDAO;
+import com.geraj.assignment.dao.SqliteAccountDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 
 public class TosController {
     private final IAccountDAO accountDAO;
-    private Account newAccount;
+    private RegistrationDTO registration;
 
     @FXML public TextArea termsAndConditions;
     @FXML public CheckBox agreeCheckBox;
@@ -28,8 +28,8 @@ public class TosController {
         );
     }
 
-    public void setAccountData(Account account) {
-        this.newAccount = account;
+    public void setRegistrationData(RegistrationDTO registration) {
+        this.registration = registration;
     }
 
     @FXML
@@ -39,7 +39,7 @@ public class TosController {
 
     @FXML
     private void onCreateAccount(ActionEvent actionEvent) {
-        accountDAO.createAccount(newAccount);
+        accountDAO.createAccount(registration);
         SceneSwitcher.switchScene(actionEvent, "main-view.fxml");
     }
 }

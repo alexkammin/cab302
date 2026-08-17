@@ -1,4 +1,4 @@
-package com.geraj.assignment.model;
+package com.geraj.assignment.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
