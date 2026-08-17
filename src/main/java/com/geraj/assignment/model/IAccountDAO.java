@@ -1,4 +1,4 @@
-package com.example.assignment.model;
+package com.geraj.assignment.model;
 
 public interface IAccountDAO {
 

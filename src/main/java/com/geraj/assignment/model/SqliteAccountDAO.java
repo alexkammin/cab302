@@ -1,4 +1,4 @@
-package com.example.assignment.model;
+package com.geraj.assignment.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

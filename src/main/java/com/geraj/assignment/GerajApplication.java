@@ -1,4 +1,4 @@
-package com.example.assignment;
+package com.geraj.assignment;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class GerajApplication extends Application {
     // Constants defining the window title and size
     public static final String TITLE = "CAB302 GERAJ Application";
     public static final int WIDTH = 640;
@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("credentials-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("credentials-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), WIDTH, HEIGHT);
         stage.setTitle(TITLE);
         stage.setScene(scene);

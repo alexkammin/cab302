@@ -1,9 +1,9 @@
-package com.example.assignment.controller;
+package com.geraj.assignment.controller;
 
-import com.example.assignment.model.Account;
-import com.example.assignment.HelloApplication;
-import com.example.assignment.model.IAccountDAO;
-import com.example.assignment.model.SqliteAccountDAO;
+import com.geraj.assignment.model.Account;
+import com.geraj.assignment.GerajApplication;
+import com.geraj.assignment.model.IAccountDAO;
+import com.geraj.assignment.model.SqliteAccountDAO;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import javafx.beans.binding.Bindings;
@@ -75,16 +75,16 @@ public class HelloController {
         enteredPassword = passwordField.getText().toCharArray();
 
         Stage stage = (Stage) nextButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("tos-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("tos-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), GerajApplication.WIDTH, GerajApplication.HEIGHT);
         stage.setScene(scene);
     }
 
     @FXML
     public void onBackButtonClick(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("credentials-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), HelloApplication.WIDTH, HelloApplication.HEIGHT);
+        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("credentials-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), GerajApplication.WIDTH, GerajApplication.HEIGHT);
         stage.setScene(scene);
     }
 

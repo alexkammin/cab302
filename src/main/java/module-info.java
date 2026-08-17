@@ -5,10 +5,10 @@ module com.example.assignment {
     requires de.mkammerer.argon2.nolibs;
 
 
-    opens com.example.assignment to javafx.fxml;
-    exports com.example.assignment;
-    exports com.example.assignment.controller;
-    opens com.example.assignment.controller to javafx.fxml;
-    exports com.example.assignment.model;
-    opens com.example.assignment.model to javafx.fxml;
+    opens com.geraj.assignment to javafx.fxml;
+    exports com.geraj.assignment;
+    exports com.geraj.assignment.controller;
+    opens com.geraj.assignment.controller to javafx.fxml;
+    exports com.geraj.assignment.model;
+    opens com.geraj.assignment.model to javafx.fxml;
 }
