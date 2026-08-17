@@ -1,5 +1,9 @@
-package com.example.assignment;
+package com.example.assignment.controller;
 
+import com.example.assignment.model.Account;
+import com.example.assignment.HelloApplication;
+import com.example.assignment.model.IAccountDAO;
+import com.example.assignment.model.SqliteAccountDAO;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import javafx.beans.binding.Bindings;

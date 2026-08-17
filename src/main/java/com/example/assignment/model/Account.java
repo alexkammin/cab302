@@ -1,4 +1,4 @@
-package com.example.assignment;
+package com.example.assignment.model;
 
 public class Account {
     private String username;
