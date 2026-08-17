@@ -7,7 +7,6 @@ import com.geraj.assignment.model.SqliteAccountDAO;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import javafx.beans.binding.Bindings;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -81,7 +80,7 @@ public class HelloController {
     }
 
     @FXML
-    public void onBackButtonClick(ActionEvent actionEvent) throws IOException {
+    public void onBackButtonClick() throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("credentials-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), GerajApplication.WIDTH, GerajApplication.HEIGHT);
@@ -89,7 +88,7 @@ public class HelloController {
     }
 
     @FXML
-    private void onCreateAccount() {
+    private void onCreateAccount() throws IOException {
         if (enteredUsername == null || enteredPassword == null) {
             if (messageLabel != null) messageLabel.setText("Error: Missing credentials.");
             return;
@@ -102,6 +101,11 @@ public class HelloController {
         if (messageLabel != null) {
             messageLabel.setText("Account successfully created!");
         }
+
+        Stage stage = (Stage) createAccountButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("main-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), GerajApplication.WIDTH, GerajApplication.HEIGHT);
+        stage.setScene(scene);
     }
 
     private String hashPassword(char[] password) {
