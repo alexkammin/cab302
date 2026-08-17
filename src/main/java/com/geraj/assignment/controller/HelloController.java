@@ -1,5 +1,6 @@
 package com.geraj.assignment.controller;
 
+import com.geraj.assignment.SceneSwitcher;
 import com.geraj.assignment.model.Account;
 import com.geraj.assignment.GerajApplication;
 import com.geraj.assignment.model.IAccountDAO;
@@ -7,6 +8,7 @@ import com.geraj.assignment.model.SqliteAccountDAO;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import javafx.beans.binding.Bindings;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -69,26 +71,30 @@ public class HelloController {
     }
 
     @FXML
-    public void onNext() throws IOException {
+    public void onNext(ActionEvent actionEvent) throws IOException {
         enteredUsername = usernameTextField.getText().trim();
         enteredPassword = passwordField.getText().toCharArray();
 
-        Stage stage = (Stage) nextButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("tos-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), GerajApplication.WIDTH, GerajApplication.HEIGHT);
-        stage.setScene(scene);
+//        Stage stage = (Stage) nextButton.getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("tos-view.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load(), GerajApplication.WIDTH, GerajApplication.HEIGHT);
+//        stage.setScene(scene);
+
+        SceneSwitcher.switchScene(actionEvent, "tos-view.fxml");
     }
 
     @FXML
-    public void onBackButtonClick() throws IOException {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("credentials-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), GerajApplication.WIDTH, GerajApplication.HEIGHT);
-        stage.setScene(scene);
+    public void onBackButtonClick(ActionEvent actionEvent) throws IOException {
+//        Stage stage = (Stage) backButton.getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("credentials-view.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load(), GerajApplication.WIDTH, GerajApplication.HEIGHT);
+//        stage.setScene(scene);
+
+        SceneSwitcher.switchScene(actionEvent, "credentials-view.fxml");
     }
 
     @FXML
-    private void onCreateAccount() throws IOException {
+    private void onCreateAccount(ActionEvent actionEvent) throws IOException {
         if (enteredUsername == null || enteredPassword == null) {
             if (messageLabel != null) messageLabel.setText("Error: Missing credentials.");
             return;
@@ -102,10 +108,12 @@ public class HelloController {
             messageLabel.setText("Account successfully created!");
         }
 
-        Stage stage = (Stage) createAccountButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), GerajApplication.WIDTH, GerajApplication.HEIGHT);
-        stage.setScene(scene);
+//        Stage stage = (Stage) createAccountButton.getScene().getWindow();
+//        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("main-view.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load(), GerajApplication.WIDTH, GerajApplication.HEIGHT);
+//        stage.setScene(scene);
+
+        SceneSwitcher.switchScene(actionEvent, "main-view.fxml");
     }
 
     private String hashPassword(char[] password) {
