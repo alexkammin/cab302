@@ -10,8 +10,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Button;
 
-import java.io.IOException;
-
 public class TosController {
     private final IAccountDAO accountDAO;
     private Account newAccount;
