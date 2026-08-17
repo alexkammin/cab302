@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/SceneSwitcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/CredentialsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/TosController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/SceneSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/SceneSwitcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/model/IAccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/model/IAccountDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/credentials-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/credentials-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/tos-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/tos-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
