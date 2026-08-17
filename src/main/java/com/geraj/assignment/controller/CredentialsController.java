@@ -10,6 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.Button;
 
 public class CredentialsController {
+
     @FXML private TextField usernameTextField;
     @FXML private PasswordField passwordField;
     @FXML private Button nextButton;
@@ -22,6 +23,13 @@ public class CredentialsController {
                         passwordField.textProperty().isEmpty()
                 )
         );
+    }
+
+    public void setRegistrationData(RegistrationDTO registration) {
+        if (registration != null) {
+            usernameTextField.setText(registration.getUsername());
+            passwordField.setText(registration.getPassword());
+        }
     }
 
     @FXML

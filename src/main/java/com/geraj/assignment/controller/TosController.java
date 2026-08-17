@@ -11,7 +11,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Button;
 
 public class TosController {
-    private final IAccountDAO accountDAO;
     private RegistrationDTO registration;
 
     @FXML public TextArea termsAndConditions;
@@ -19,7 +18,7 @@ public class TosController {
     @FXML public Button backButton;
     @FXML public Button createAccountButton;
 
-    public TosController() { accountDAO = new SqliteAccountDAO(); }
+    public TosController() {  }
 
     @FXML
     public void initialize() {
@@ -34,11 +33,15 @@ public class TosController {
 
     @FXML
     public void onBackButtonClick(ActionEvent actionEvent) {
-        SceneSwitcher.switchScene(actionEvent, "credentials-view.fxml");
+        CredentialsController controller = SceneSwitcher.switchScene(actionEvent, "credentials-view.fxml");
+        if (controller != null && registration != null) {
+            controller.setRegistrationData(registration);
+        }
     }
 
     @FXML
     private void onCreateAccount(ActionEvent actionEvent) {
+        IAccountDAO accountDAO = new SqliteAccountDAO();
         accountDAO.createAccount(registration);
         SceneSwitcher.switchScene(actionEvent, "main-view.fxml");
     }
