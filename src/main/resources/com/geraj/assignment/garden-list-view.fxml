@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.geraj.assignment.controller.MainController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label>Find your Garden</Label>
+
+    <GridPane hgap="5.0" vgap="5.0" alignment="CENTER">
+        <Label text="Garden name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label text="Garden location:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="gardenNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <TextField fx:id="gardenLocationTextField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <ListView>
+<!--        should be a list of gardens fitting search criteria-->
+    </ListView>
+
+
+    <Button fx:id="searchButton"
+            text="Search"
+    />
+</VBox>
