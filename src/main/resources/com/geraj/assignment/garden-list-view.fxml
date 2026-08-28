@@ -7,24 +7,44 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.geraj.assignment.controller.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label>Find your Garden</Label>
+    <Label style="-fx-font-size: 20px;">
+        Find your Garden
+    </Label>
 
     <GridPane hgap="5.0" vgap="5.0" alignment="CENTER">
-        <Label text="Garden name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-        <Label text="Garden location:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label text="Garden name:" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.halignment="RIGHT"/>
+        <Label text="Garden location:" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.halignment="RIGHT"/>
         <TextField fx:id="gardenNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
         <TextField fx:id="gardenLocationTextField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
     </GridPane>
 
-    <ListView>
-<!--        should be a list of gardens fitting search criteria-->
-    </ListView>
+    <VBox alignment="CENTER">
+        <Label>
+            Gardens
+        </Label>
+
+        <ListView>
+            <!--        should be a list of gardens fitting search criteria-->
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Garden 1" />
+                    <String fx:value="Garden 2" />
+                    <String fx:value="Garden 3" />
+                    <String fx:value="Garden 4" />
+                    <String fx:value="Garden 5" />
+                    <String fx:value="Garden 6" />
+                </FXCollections>
+            </items>
+
+        </ListView>
+    </VBox>
 
 
     <Button fx:id="searchButton"
