@@ -7,7 +7,7 @@ public class UserTest {
 
     @BeforeEach
     public void setUp() {
-        user = new User("Name", "email@example.com", "password123");
+        user = new User("Name", "email@example.com", "hash_string");
     }
 
     @Test
@@ -22,6 +22,11 @@ public class UserTest {
     }
 
     @Test
+    public void testConstructorWithNullName() {
+        assertThrows(NullPointerException.class, () -> new User(null, "email@example.com", "hash_string"));
+    }
+
+    @Test
     public void testGetEmail() {
         assertEquals("email@example.com", user.getEmail());
     }
@@ -33,57 +38,23 @@ public class UserTest {
     }
 
     @Test
-    public void testVerifyPassword() {
-        assertTrue(user.verifyPassword("password123"));
-    }
-
-    @Test
-    public void testPasswordVerificationFailsWithIncorrectPassword() {
-        assertFalse(user.verifyPassword("wrongPassword"));
-    }
-
-    @Test
-    public void testUpdatePasswordNewPasswordSucceeds() {
-        user.updatePassword("newPassword123");
-        assertTrue(user.verifyPassword("newPassword123"));
-    }
-
-    @Test
-    public void testUpdatePasswordOldPasswordFails() {
-        user.updatePassword("newPassword123");
-        assertFalse(user.verifyPassword("password123"));
-    }
-
-    @Test
-    public void testConstructorWithNullName() {
-        assertThrows(NullPointerException.class, () -> new User(null, "email@example.com", "password123"));
-    }
-
-    @Test
     public void testConstructorWithNullEmail() {
-        assertThrows(NullPointerException.class, () -> new User("Name", null, "password123"));
+        assertThrows(NullPointerException.class, () -> new User("Name", null, "hash_string"));
     }
 
     @Test
-    public void testConstructorWithNullPassword() {
+    public void testGetHash() {
+        assertEquals("hash_string", user.getHash());
+    }
+
+    @Test
+    public void testSetHash() {
+        user.setHash("new_hash_string");
+        assertEquals("new_hash_string", user.getHash());
+    }
+
+    @Test
+    public void testConstructorWithNullHash() {
         assertThrows(NullPointerException.class, () -> new User("Name", "email@example.com", null));
-    }
-
-    @Test
-    public void testVerifyPasswordWithNullInput() {
-        assertFalse(user.verifyPassword(null));
-    }
-
-    @Test
-    public void testUpdatePasswordWithNullFails() {
-        assertThrows(NullPointerException.class, () -> user.updatePassword(null));
-
-        // ensure old password still works if update failed
-        assertTrue(user.verifyPassword("password123"));
-    }
-
-    @Test
-    public void testPasswordVerificationIsCaseSensitive() {
-        assertFalse(user.verifyPassword("PASSWORD123"));
     }
 }

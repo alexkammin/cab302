@@ -1,7 +1,5 @@
 package com.geraj.assignment.model;
 
-import de.mkammerer.argon2.Argon2;
-import de.mkammerer.argon2.Argon2Factory;
 import java.util.Objects;
 
 public class User {
@@ -9,12 +7,10 @@ public class User {
     private String email;
     private String hash;
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String hash) {
         this.name = Objects.requireNonNull(name, "Name cannot be null");
         this.email = Objects.requireNonNull(email, "Email cannot be null");
-        Objects.requireNonNull(password, "Password cannot be null");
-
-        this.hash = hashPassword(password);
+        this.hash = Objects.requireNonNull(hash, "Hash cannot be null");
     }
 
     public String getName() {
@@ -33,37 +29,11 @@ public class User {
         this.email = Objects.requireNonNull(email, "Email cannot be null");
     }
 
-    public boolean verifyPassword(String password) {
-        if (password == null || this.hash == null) {
-            return false;
-        }
-
-        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
-        char[] passwordArray = password.toCharArray();
-
-        try {
-            return argon2.verify(this.hash, passwordArray);
-        }
-        finally {
-            argon2.wipeArray(passwordArray);
-        }
+    public String getHash() {
+        return this.hash;
     }
 
-    public void updatePassword(String password) {
-        Objects.requireNonNull(password, "Password cannot be null");
-
-        this.hash = hashPassword(password);
-    }
-
-    private String hashPassword(String password) {
-        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
-        char[] passwordArray = password.toCharArray();
-
-        try {
-            return argon2.hash(2, 65536, 1, passwordArray);
-        }
-        finally {
-            argon2.wipeArray(passwordArray);
-        }
+    public void setHash(String hash) {
+        this.hash = Objects.requireNonNull(hash, "Hash cannot be null");
     }
 }
