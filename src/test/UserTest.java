@@ -1,5 +1,4 @@
-import com.geraj.assignment.*;
-
+import com.geraj.assignment.model.User;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -57,17 +56,17 @@ public class UserTest {
 
     @Test
     public void testConstructorWithNullName() {
-        assertThrows(IllegalArgumentException.class, () -> new User(null, "email@example.com", "password123"));
+        assertThrows(NullPointerException.class, () -> new User(null, "email@example.com", "password123"));
     }
 
     @Test
     public void testConstructorWithNullEmail() {
-        assertThrows(IllegalArgumentException.class, () -> new User("Name", null, "password123"));
+        assertThrows(NullPointerException.class, () -> new User("Name", null, "password123"));
     }
 
     @Test
     public void testConstructorWithNullPassword() {
-        assertThrows(IllegalArgumentException.class, () -> new User("Name", "email@example.com", null));
+        assertThrows(NullPointerException.class, () -> new User("Name", "email@example.com", null));
     }
 
     @Test
@@ -77,7 +76,7 @@ public class UserTest {
 
     @Test
     public void testUpdatePasswordWithNullFails() {
-        assertThrows(IllegalArgumentException.class, () -> user.updatePassword(null));
+        assertThrows(NullPointerException.class, () -> user.updatePassword(null));
 
         // ensure old password still works if update failed
         assertTrue(user.verifyPassword("password123"));
