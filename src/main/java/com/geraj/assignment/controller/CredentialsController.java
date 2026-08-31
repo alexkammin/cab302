@@ -1,7 +1,9 @@
 package com.geraj.assignment.controller;
 
+import com.geraj.assignment.PasswordService;
 import com.geraj.assignment.SceneSwitcher;
-import com.geraj.assignment.dto.RegistrationDTO;
+import com.geraj.assignment.dao.IAccountDAO;
+import com.geraj.assignment.dao.SqliteAccountDAO;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,11 +15,11 @@ public class CredentialsController {
 
     @FXML private TextField usernameTextField;
     @FXML private PasswordField passwordField;
-    @FXML private Button nextButton;
+    @FXML private Button createAccountButton;
 
     @FXML
     public void initialize() {
-        nextButton.disableProperty().bind(
+        createAccountButton.disableProperty().bind(
                 Bindings.or(
                         usernameTextField.textProperty().isEmpty(),
                         passwordField.textProperty().isEmpty()
@@ -25,23 +27,16 @@ public class CredentialsController {
         );
     }
 
-    public void setRegistrationData(RegistrationDTO registration) {
-        if (registration != null) {
-            usernameTextField.setText(registration.getUsername());
-            passwordField.setText(registration.getPassword());
-        }
-    }
-
     @FXML
-    public void onNext(ActionEvent actionEvent) {
+    public void onCreateAccount(ActionEvent actionEvent) {
+        IAccountDAO accountDAO = new SqliteAccountDAO();
+        PasswordService passwordService = PasswordService.getInstance();
+
         String username = usernameTextField.getText().trim();
-        String password = passwordField.getText();
+        char[] password = passwordField.getText().toCharArray();
+        String hash = passwordService.hashPassword(password);
 
-        RegistrationDTO registration = new RegistrationDTO(username, password);
-
-        TosController controller = SceneSwitcher.switchScene(actionEvent, "tos-view.fxml");
-
-        assert controller != null;
-        controller.setRegistrationData(registration);
+        accountDAO.createAccount(username, hash);
+        SceneSwitcher.switchScene(actionEvent, "main-view.fxml");
     }
 }
