@@ -1,0 +1,111 @@
+import com.geraj.assignment.model.Account;
+import com.geraj.assignment.model.Garden;
+import org.junit.jupiter.api.*;
+import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class GardenTest {
+    private Garden garden;
+    private Account owner;
+
+    @BeforeEach
+    public void setUp() {
+        owner = new Account("Owner", "owner@example.com", "hash_string");
+        garden = new Garden(
+                "Name",
+                "Location",
+                21.6,
+                1.149,
+                43,
+                owner,
+                new ArrayList<GardenPlot>()
+        );
+    }
+
+    @Test
+    public void testGetName() {
+        assertEquals("Name", garden.getName());
+    }
+
+    @Test
+    public void testSetName() {
+        garden.setName("NewName");
+        assertEquals("NewName", garden.getName());
+    }
+
+    @Test
+    public void testGetLocation() {
+        assertEquals("Location", garden.getLocation());
+    }
+
+    @Test
+    public void testSetLocation() {
+        garden.setLocation("NewLocation");
+        assertEquals("NewLocation", garden.getLocation());
+    }
+
+    @Test
+    public void testGetTemperature() {
+        assertEquals(21.6, garden.getTemperature());
+    }
+
+    @Test
+    public void testSetTemperature() {
+        garden.setTemperature(25);
+        assertEquals(25, garden.getTemperature());
+    }
+
+    @Test
+    public void testGetPrecipitation() {
+        assertEquals(1.149, garden.getPrecipitation());
+    }
+
+    @Test
+    public void testSetPrecipitation() {
+        garden.setPrecipitation(2);
+        assertEquals(2, garden.getPrecipitation());
+    }
+
+    @Test
+    public void testGetAtmosphericHumidity() {
+        assertEquals(43, garden.getAtmosphericHumidity());
+    }
+
+    @Test
+    public void testSetAtmosphericHumidity() {
+        garden.setAtmosphericHumidity(2);
+        assertEquals(2, garden.getAtmosphericHumidity());
+    }
+
+    @Test
+    public void testGetOwner() {
+        assertSame(owner, garden.getOwner());
+    }
+
+    @Test
+    public void testSetOwner() {
+        Account newOwner = new Account("NewOwner", "newOwner@example.com", "new_hash_string");
+        garden.setOwner(newOwner);
+        assertSame(newOwner, garden.getOwner());
+    }
+
+    @Test
+    public void testGetGardenPlots() {
+        assertEquals(new ArrayList<GardenPlot>(), garden.getGardenPlots());
+    }
+
+    @Test
+    public void testAddGardenPlot() {
+        GardenPlot gardenPlot = new GardenPlot();
+        garden.addGardenPlot(gardenPlot);
+        assertEquals(new ArrayList<GardenPlot>(gardenPlot), garden.getGardenPlots());
+    }
+
+    @Test
+    public void testRemoveGardenPlot() {
+        GardenPlot gardenPlot = new GardenPlot();
+        garden.addGardenPlot(gardenPlot);
+        garden.removeGardenPlot(gardenPlot);
+        assertEquals(new ArrayList<GardenPlot>(), garden.getGardenPlots());
+    }
+}
