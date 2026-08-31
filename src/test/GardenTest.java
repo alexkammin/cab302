@@ -1,6 +1,8 @@
 import com.geraj.assignment.model.Account;
 import com.geraj.assignment.model.Garden;
 import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -98,7 +100,7 @@ public class GardenTest {
     public void testAddGardenPlot() {
         GardenPlot gardenPlot = new GardenPlot();
         garden.addGardenPlot(gardenPlot);
-        assertEquals(new ArrayList<GardenPlot>(gardenPlot), garden.getGardenPlots());
+        assertEquals(new ArrayList<GardenPlot>(List.of(gardenPlot)), garden.getGardenPlots());
     }
 
     @Test

@@ -1,6 +1,8 @@
 import com.geraj.assignment.model.Account;
 import com.geraj.assignment.model.GardenPlot;
 import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -138,7 +140,7 @@ public class GardenPlotTest {
     public void testAddContributor() {
         Account newContributor = new Account("NewContributor", "newContributor@example.com", "new_hash_string");
         gardenPlot.addContributor(newContributor);
-        assertEquals(new ArrayList<Account>(newContributor), garden.getContributors());
+        assertEquals(new ArrayList<Account>(List.of(newContributor)), garden.getContributors());
     }
 
     @Test
