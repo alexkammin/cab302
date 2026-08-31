@@ -18,7 +18,7 @@ public class CreateAccountController {
     @FXML private Button createAccountButton;
 
     @FXML
-    public void initialize() {
+    private void initialize() {
         createAccountButton.disableProperty().bind(
                 Bindings.or(
                         usernameTextField.textProperty().isEmpty(),
@@ -28,7 +28,7 @@ public class CreateAccountController {
     }
 
     @FXML
-    public void onCreateAccount(ActionEvent actionEvent) {
+    private void onCreateAccount(ActionEvent actionEvent) {
         IAccountDAO accountDAO = new SqliteAccountDAO();
         PasswordService passwordService = PasswordService.getInstance();
 
