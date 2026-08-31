@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Button;
 
-public class CredentialsController {
+public class CreateAccountController {
 
     @FXML private TextField usernameTextField;
     @FXML private PasswordField passwordField;

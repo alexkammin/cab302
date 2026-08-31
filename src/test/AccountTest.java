@@ -1,60 +1,60 @@
-import com.geraj.assignment.model.User;
+import com.geraj.assignment.model.Account;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UserTest {
-    private User user;
+public class AccountTest {
+    private Account account;
 
     @BeforeEach
     public void setUp() {
-        user = new User("Name", "email@example.com", "hash_string");
+        account = new Account("Name", "email@example.com", "hash_string");
     }
 
     @Test
     public void testGetName() {
-        assertEquals("Name", user.getName());
+        assertEquals("Name", account.getName());
     }
 
     @Test
     public void testSetName() {
-        user.setName("NewName");
-        assertEquals("NewName", user.getName());
+        account.setName("NewName");
+        assertEquals("NewName", account.getName());
     }
 
     @Test
     public void testConstructorWithNullName() {
-        assertThrows(NullPointerException.class, () -> new User(null, "email@example.com", "hash_string"));
+        assertThrows(NullPointerException.class, () -> new Account(null, "email@example.com", "hash_string"));
     }
 
     @Test
     public void testGetEmail() {
-        assertEquals("email@example.com", user.getEmail());
+        assertEquals("email@example.com", account.getEmail());
     }
 
     @Test
     public void testSetEmail() {
-        user.setEmail("newEmail@example.com");
-        assertEquals("newEmail@example.com", user.getEmail());
+        account.setEmail("newEmail@example.com");
+        assertEquals("newEmail@example.com", account.getEmail());
     }
 
     @Test
     public void testConstructorWithNullEmail() {
-        assertThrows(NullPointerException.class, () -> new User("Name", null, "hash_string"));
+        assertThrows(NullPointerException.class, () -> new Account("Name", null, "hash_string"));
     }
 
     @Test
     public void testGetHash() {
-        assertEquals("hash_string", user.getHash());
+        assertEquals("hash_string", account.getHash());
     }
 
     @Test
     public void testSetHash() {
-        user.setHash("new_hash_string");
-        assertEquals("new_hash_string", user.getHash());
+        account.setHash("new_hash_string");
+        assertEquals("new_hash_string", account.getHash());
     }
 
     @Test
     public void testConstructorWithNullHash() {
-        assertThrows(NullPointerException.class, () -> new User("Name", "email@example.com", null));
+        assertThrows(NullPointerException.class, () -> new Account("Name", "email@example.com", null));
     }
 }

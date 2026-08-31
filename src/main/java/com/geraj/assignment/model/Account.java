@@ -2,12 +2,12 @@ package com.geraj.assignment.model;
 
 import java.util.Objects;
 
-public class User {
+public class Account {
     private String name;
     private String email;
     private String hash;
 
-    public User(String name, String email, String hash) {
+    public Account(String name, String email, String hash) {
         this.name = Objects.requireNonNull(name, "Name cannot be null");
         this.email = Objects.requireNonNull(email, "Email cannot be null");
         this.hash = Objects.requireNonNull(hash, "Hash cannot be null");
