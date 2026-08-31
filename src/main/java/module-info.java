@@ -3,6 +3,7 @@ module com.example.assignment {
     requires javafx.fxml;
     requires java.sql;
     requires de.mkammerer.argon2.nolibs;
+    requires java.net.http;
 
 
     opens com.geraj.assignment to javafx.fxml;
