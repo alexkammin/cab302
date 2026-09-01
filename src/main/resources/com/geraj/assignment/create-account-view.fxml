@@ -17,10 +17,18 @@
   <Label text="Create an account" />
 
   <GridPane hgap="5.0" vgap="5.0" alignment="CENTER">
-    <Label text="Enter Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-    <Label text="Enter Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-    <TextField fx:id="usernameTextField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-    <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="Enter First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <Label text="Enter Surname:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Label text="Create Username:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <Label text="Enter Email:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+    <Label text="Enter Password:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+    <Label text="Confirm Password:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+    <TextField fx:id="firstnameTextField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <TextField fx:id="surnameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <TextField fx:id="usernameTextField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <PasswordField fx:id="confirmpasswordField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
   </GridPane>
 
   <Button fx:id="createAccountButton"
