@@ -23,8 +23,8 @@
         <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
     </GridPane>
 
-    <Button fx:id="SignInButton"
-            text="Sign In"
-            onAction="#onSignIn"
-    />
+<!--    <Button fx:id="SignInButton"-->
+<!--            text="Sign In"-->
+<!--            onAction="#onSignIn"-->
+<!--    />-->
 </VBox>
