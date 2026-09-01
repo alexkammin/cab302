@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/GardenPlotTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GardenPlotTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/GardenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GardenTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +28,65 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.4478833539981832" />
+      <entry key="MS500" value="2.481859209627885" />
+      <entry key="S2" value="4.74183237228893" />
+      <entry key="S5" value="6.916633450223303" />
+      <entry key="S10" value="9.650119890754588" />
+      <entry key="S30" value="15.27610886964726" />
+      <entry key="S60" value="18.349962709025494" />
+      <entry key="M2" value="20.4249436171322" />
+      <entry key="M5" value="21.901383933940505" />
+      <entry key="M10" value="22.438452415883678" />
+      <entry key="M15" value="22.62285161059618" />
+      <entry key="M30" value="22.810017912380804" />
+      <entry key="H1" value="22.904653905321737" />
+      <entry key="H2" value="22.95223780212531" />
+      <entry key="H4" value="22.97609656475551" />
+      <entry key="D1" value="22.996012987720675" />
+      <entry key="W1" value="22.99943035068796" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.4179762624270598" />
+      <entry key="MS500" value="2.464316754720232" />
+      <entry key="S2" value="4.7296427746516" />
+      <entry key="S5" value="6.9093182657229715" />
+      <entry key="S10" value="9.644988789196553" />
+      <entry key="S30" value="15.273122991706243" />
+      <entry key="S60" value="18.34806418100246" />
+      <entry key="M2" value="20.423850728871184" />
+      <entry key="M5" value="21.900904912318232" />
+      <entry key="M10" value="22.438205203831" />
+      <entry key="M15" value="22.622685033236024" />
+      <entry key="M30" value="22.809933724108078" />
+      <entry key="H1" value="22.90461158344494" />
+      <entry key="H2" value="22.95221658389273" />
+      <entry key="H4" value="22.976085941270536" />
+      <entry key="D1" value="22.99601121514036" />
+      <entry key="W1" value="22.999430097413182" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -40,30 +95,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.GerajApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in Assignment.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PasswordServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserTest.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.GerajApplication.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "JUnit.All in Assignment.executor": "Run",
+    "JUnit.PasswordServiceTest.executor": "Run",
+    "JUnit.UserTest.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.GerajApplication">
     <configuration name="GerajApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.geraj.assignment.GerajApplication" />
