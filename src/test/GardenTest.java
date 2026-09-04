@@ -12,7 +12,7 @@ public class GardenTest {
 
     @BeforeEach
     public void setUp() {
-        owner = new Account("Owner", "owner@example.com", "hash_string");
+        owner = new Account("Name", "email@example.com", "First", "Last", "hash_string");
         garden = new Garden(
                 "Name",
                 "Location",
@@ -86,7 +86,7 @@ public class GardenTest {
 
     @Test
     public void testSetOwner() {
-        Account newOwner = new Account("NewOwner", "newOwner@example.com", "new_hash_string");
+        Account newOwner = new Account("NewOwner", "newOwner@example.com", "NewFirst", "NewLast", "new_hash_string");
         garden.setOwner(newOwner);
         assertSame(newOwner, garden.getOwner());
     }

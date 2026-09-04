@@ -10,7 +10,7 @@ public class AccountSessionTest {
     @BeforeEach
     public void setUp() {
         AccountSession.clear();
-        account = new Account("Name", "email@example.com", "hash_string");
+        account = new Account("Name", "email@example.com", "First", "Last", "hash_string");
     }
 
     @Test
@@ -57,7 +57,7 @@ public class AccountSessionTest {
 
     @Test
     public void startSessionShouldOverwriteExistingSession() {
-        Account newAccount = new Account("NewName", "newEmail@example.com", "new_hash_string");
+        Account newAccount = new Account("NewName", "newEmail@example.com", "NewFirst", "NewLast", "new_hash_string");
 
         AccountSession.startSession(account);
         AccountSession.startSession(newAccount);

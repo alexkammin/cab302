@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/dao/SqliteGardenDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/dao/IGardenDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/dao/IGardenDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/dao/IAccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/dao/IAccountDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/dao/SqliteAccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/dao/SqliteAccountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/model/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/AccountSessionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AccountSessionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/AccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/GardenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GardenTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +111,7 @@
   "keyToString": {
     "Application.GerajApplication.executor": "Run",
     "Application.HelloApplication.executor": "Run",
+    "JUnit.AccountTest.executor": "Run",
     "JUnit.All in Assignment.executor": "Run",
     "JUnit.GardenTest.executor": "Run",
     "JUnit.PasswordServiceTest.executor": "Run",
@@ -131,7 +134,7 @@
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.GardenTest">
+  <component name="RunManager" selected="JUnit.AccountTest">
     <configuration name="GerajApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.geraj.assignment.GerajApplication" />
       <module name="Assignment" />
@@ -141,6 +144,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AccountTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -164,6 +176,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AccountTest" />
         <item itemvalue="JUnit.GardenTest" />
         <item itemvalue="Application.GerajApplication" />
         <item itemvalue="JUnit.All in Assignment" />

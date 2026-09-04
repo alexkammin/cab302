@@ -7,7 +7,7 @@ public class AccountTest {
 
     @BeforeEach
     public void setUp() {
-        account = new Account("Name", "email@example.com", "hash_string");
+        account = new Account("Name", "email@example.com", "First", "Last", "hash_string");
     }
 
     @Test
@@ -23,7 +23,7 @@ public class AccountTest {
 
     @Test
     public void testConstructorWithNullName() {
-        assertThrows(NullPointerException.class, () -> new Account(null, "email@example.com", "hash_string"));
+        assertThrows(NullPointerException.class, () -> new Account(null, "email@example.com", "First", "Last", "hash_string"));
     }
 
     @Test
@@ -39,7 +39,39 @@ public class AccountTest {
 
     @Test
     public void testConstructorWithNullEmail() {
-        assertThrows(NullPointerException.class, () -> new Account("Name", null, "hash_string"));
+        assertThrows(NullPointerException.class, () -> new Account("Name", null, "First", "Last", "hash_string"));
+    }
+
+    @Test
+    public void testGetFirstName() {
+        assertEquals("First", account.getFirstName());
+    }
+
+    @Test
+    public void testSetFirstName() {
+        account.setFirstName("newFirst");
+        assertEquals("newFirst", account.getFirstName());
+    }
+
+    @Test
+    public void testConstructorWithNullFirstName() {
+        assertThrows(NullPointerException.class, () -> new Account("Name", "email@example.com", null, "Last", "hash_string"));
+    }
+
+    @Test
+    public void testGetLastName() {
+        assertEquals("Last", account.getLastName());
+    }
+
+    @Test
+    public void testSetLastName() {
+        account.setLastName("newLast");
+        assertEquals("newLast", account.getLastName());
+    }
+
+    @Test
+    public void testConstructorWithNullLastName() {
+        assertThrows(NullPointerException.class, () -> new Account("Name", "email@example.com", "First", null, "hash_string"));
     }
 
     @Test
@@ -55,6 +87,6 @@ public class AccountTest {
 
     @Test
     public void testConstructorWithNullHash() {
-        assertThrows(NullPointerException.class, () -> new Account("Name", "email@example.com", null));
+        assertThrows(NullPointerException.class, () -> new Account("Name", "email@example.com", "First", "Last", null));
     }
 }
