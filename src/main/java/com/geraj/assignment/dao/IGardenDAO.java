@@ -1,7 +1,9 @@
 package com.geraj.assignment.dao;
 
-public interface IGardenDAO {
-    void createGarden(String name, String hash);
+import com.geraj.assignment.model.Garden;
 
-    void findGarden(String name, String Location);
+public interface IGardenDAO {
+    void createGarden(Garden garden);
+
+    Garden findGarden(String name, String location);
 }

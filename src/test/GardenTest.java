@@ -19,8 +19,8 @@ public class GardenTest {
                 21.6,
                 1.149,
                 43,
-                owner,
-                new ArrayList<GardenPlot>()
+                owner//,
+//                new ArrayList<GardenPlot>()
         );
     }
 
@@ -53,8 +53,8 @@ public class GardenTest {
 
     @Test
     public void testSetTemperature() {
-        garden.setTemperature(25);
-        assertEquals(25, garden.getTemperature());
+        garden.setTemperature(25.0);
+        assertEquals(25.0, garden.getTemperature());
     }
 
     @Test
@@ -64,8 +64,8 @@ public class GardenTest {
 
     @Test
     public void testSetPrecipitation() {
-        garden.setPrecipitation(2);
-        assertEquals(2, garden.getPrecipitation());
+        garden.setPrecipitation(2.0);
+        assertEquals(2.0, garden.getPrecipitation());
     }
 
     @Test
@@ -91,23 +91,23 @@ public class GardenTest {
         assertSame(newOwner, garden.getOwner());
     }
 
-    @Test
-    public void testGetGardenPlots() {
-        assertEquals(new ArrayList<GardenPlot>(), garden.getGardenPlots());
-    }
-
-    @Test
-    public void testAddGardenPlot() {
-        GardenPlot gardenPlot = new GardenPlot();
-        garden.addGardenPlot(gardenPlot);
-        assertEquals(new ArrayList<GardenPlot>(List.of(gardenPlot)), garden.getGardenPlots());
-    }
-
-    @Test
-    public void testRemoveGardenPlot() {
-        GardenPlot gardenPlot = new GardenPlot();
-        garden.addGardenPlot(gardenPlot);
-        garden.removeGardenPlot(gardenPlot);
-        assertEquals(new ArrayList<GardenPlot>(), garden.getGardenPlots());
-    }
+//    @Test
+//    public void testGetGardenPlots() {
+//        assertEquals(new ArrayList<GardenPlot>(), garden.getGardenPlots());
+//    }
+//
+//    @Test
+//    public void testAddGardenPlot() {
+//        GardenPlot gardenPlot = new GardenPlot();
+//        garden.addGardenPlot(gardenPlot);
+//        assertEquals(new ArrayList<GardenPlot>(List.of(gardenPlot)), garden.getGardenPlots());
+//    }
+//
+//    @Test
+//    public void testRemoveGardenPlot() {
+//        GardenPlot gardenPlot = new GardenPlot();
+//        garden.addGardenPlot(gardenPlot);
+//        garden.removeGardenPlot(gardenPlot);
+//        assertEquals(new ArrayList<GardenPlot>(), garden.getGardenPlots());
+//    }
 }

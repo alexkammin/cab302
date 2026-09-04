@@ -8,9 +8,9 @@ public class Account {
     private String hash;
 
     public Account(String name, String email, String hash) {
-        this.name = Objects.requireNonNull(name, "Name cannot be null");
-        this.email = Objects.requireNonNull(email, "Email cannot be null");
-        this.hash = Objects.requireNonNull(hash, "Hash cannot be null");
+        this.name = Objects.requireNonNull(name, "Account name cannot be null");
+        this.email = Objects.requireNonNull(email, "Account email cannot be null");
+        this.hash = Objects.requireNonNull(hash, "Account password hash cannot be null");
     }
 
     public String getName() {
@@ -18,7 +18,7 @@ public class Account {
     }
 
     public void setName(String name) {
-        this.name = Objects.requireNonNull(name, "Name cannot be null");
+        this.name = Objects.requireNonNull(name, "Account name cannot be null");
     }
 
     public String getEmail() {
@@ -26,7 +26,7 @@ public class Account {
     }
 
     public void setEmail(String email) {
-        this.email = Objects.requireNonNull(email, "Email cannot be null");
+        this.email = Objects.requireNonNull(email, "Account email cannot be null");
     }
 
     public String getHash() {
@@ -34,6 +34,6 @@ public class Account {
     }
 
     public void setHash(String hash) {
-        this.hash = Objects.requireNonNull(hash, "Hash cannot be null");
+        this.hash = Objects.requireNonNull(hash, "Account password hash cannot be null");
     }
 }
