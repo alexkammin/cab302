@@ -16,7 +16,7 @@ public class SqliteAccountDAO implements IAccountDAO {
         String query = """
             CREATE TABLE IF NOT EXISTS accounts (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                username TEXT NOT NULL UNIQUE,
+                name TEXT NOT NULL UNIQUE,
                 hash TEXT NOT NULL
             );
             """;
@@ -29,11 +29,14 @@ public class SqliteAccountDAO implements IAccountDAO {
     }
 
     @Override
-    public void createAccount(String username, String hash) {
-        String query = "INSERT INTO accounts (username, hash) VALUES (?, ?)";
+    public void createAccount(String name, String hash) {
+        String query = """
+            INSERT INTO accounts (name, hash)
+            VALUES (?, ?)
+            """;
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, username);
+            statement.setString(1, name);
             statement.setString(2, hash);
             statement.executeUpdate();
         } catch (Exception e) {

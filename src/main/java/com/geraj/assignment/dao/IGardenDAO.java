@@ -5,5 +5,5 @@ import com.geraj.assignment.model.Garden;
 public interface IGardenDAO {
     void createGarden(Garden garden);
 
-    Garden findGarden(String name, String location);
+//    Garden findGarden(String name, String location);
 }
