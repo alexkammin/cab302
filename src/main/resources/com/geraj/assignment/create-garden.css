@@ -1,0 +1,265 @@
+.root-pane {
+    -fx-background-color: #f7f7f4;
+}
+
+
+/* ============================= */
+/* PAGE                          */
+/* ============================= */
+
+.page-scroll {
+    -fx-background-color: transparent;
+    -fx-background: #f7f7f4;
+    -fx-border-color: transparent;
+}
+
+.page-scroll > .viewport {
+    -fx-background-color: #f7f7f4;
+}
+
+.page-content {
+    -fx-background-color: #f7f7f4;
+}
+
+
+/* ============================= */
+/* TOP NAVIGATION                */
+/* ============================= */
+
+.top-bar {
+    -fx-background-color: white;
+    -fx-padding: 18 48 18 48;
+    -fx-border-color: transparent transparent #dedcd6 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.brand-icon {
+    -fx-text-fill: #287653;
+    -fx-font-size: 21px;
+}
+
+.brand-name {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #20201f;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #615f5b;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.nav-button-active {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #17633f;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.avatar {
+    -fx-background-color: #e5f1eb;
+    -fx-background-radius: 50;
+}
+
+.avatar-text {
+    -fx-text-fill: #17633f;
+    -fx-font-weight: bold;
+}
+
+.account-name {
+    -fx-font-weight: bold;
+    -fx-text-fill: #2d2c29;
+}
+
+
+/* ============================= */
+/* PAGE HEADING                  */
+/* ============================= */
+
+.breadcrumb {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #17633f;
+}
+
+.page-title {
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222220;
+}
+
+.page-description {
+    -fx-font-size: 15px;
+    -fx-text-fill: #6b6965;
+}
+
+
+/* ============================= */
+/* CARDS                         */
+/* ============================= */
+
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #dedcd6;
+    -fx-border-width: 1;
+    -fx-padding: 28;
+}
+
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #252522;
+}
+
+.side-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #252522;
+}
+
+.muted-text {
+    -fx-font-size: 13px;
+    -fx-text-fill: #74716c;
+}
+
+
+/* ============================= */
+/* FORM                          */
+/* ============================= */
+
+.field-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #302f2c;
+}
+
+.text-field {
+    -fx-pref-height: 42px;
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-border-color: #d8d5ce;
+    -fx-padding: 0 13 0 13;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused {
+    -fx-border-color: #327956;
+    -fx-border-width: 1.5;
+}
+
+.input-error {
+    -fx-border-color: #c93636;
+}
+
+.field-error {
+    -fx-text-fill: #b62525;
+    -fx-font-size: 13px;
+}
+
+
+/* ============================= */
+/* BUTTONS                       */
+/* ============================= */
+
+.primary-button {
+    -fx-background-color: #2c7553;
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #236044;
+}
+
+.secondary-button {
+    -fx-background-color: #f4f3ef;
+    -fx-background-radius: 8;
+    -fx-border-color: #a9a69f;
+    -fx-border-radius: 8;
+    -fx-text-fill: #33322f;
+    -fx-padding: 10 20 10 20;
+    -fx-cursor: hand;
+}
+
+
+/* ============================= */
+/* VALIDATION                    */
+/* ============================= */
+
+.error-banner {
+    -fx-background-color: #fff0f0;
+    -fx-background-radius: 9;
+    -fx-border-color: #c93636;
+    -fx-border-radius: 9;
+    -fx-padding: 13;
+}
+
+.error-title {
+    -fx-font-weight: bold;
+    -fx-text-fill: #b62525;
+}
+
+.error-message {
+    -fx-text-fill: #b62525;
+    -fx-font-size: 12px;
+}
+
+
+/* ============================= */
+/* INFORMATION PANELS            */
+/* ============================= */
+
+.admin-icon {
+    -fx-background-color: #e5f1eb;
+    -fx-background-radius: 50;
+}
+
+.admin-icon-text {
+    -fx-text-fill: #27734f;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+.eyebrow {
+    -fx-text-fill: #17633f;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.info-banner {
+    -fx-background-color: #e6f1eb;
+    -fx-background-radius: 9;
+    -fx-padding: 12;
+}
+
+.info-title {
+    -fx-text-fill: #216b49;
+    -fx-font-weight: bold;
+}
+
+.info-text {
+    -fx-text-fill: #347256;
+    -fx-font-size: 12px;
+}
+
+.requirement-card {
+    -fx-background-color: #fff0d8;
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+}
+
+.requirement-title {
+    -fx-text-fill: #8b4d0e;
+    -fx-font-weight: bold;
+}
