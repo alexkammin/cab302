@@ -4,6 +4,7 @@ import com.geraj.assignment.PasswordService;
 import com.geraj.assignment.SceneSwitcher;
 import com.geraj.assignment.dao.IAccountDAO;
 import com.geraj.assignment.dao.SqliteAccountDAO;
+import com.geraj.assignment.model.Account;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,7 +37,8 @@ public class CreateAccountController {
         char[] password = passwordField.getText().toCharArray();
         String hash = passwordService.hashPassword(password);
 
-        accountDAO.createAccount(username, hash);
+        Account account = new Account(username, "TEMP_EMAIL_REPLACE_LATER", "TEMP_FIRST_NAME", "TEMP_LAST_NAME", hash);
+        accountDAO.createAccount(account);
         SceneSwitcher.switchScene(actionEvent, "main-view.fxml");
     }
 }
