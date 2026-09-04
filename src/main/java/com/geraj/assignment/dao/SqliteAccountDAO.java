@@ -20,6 +20,9 @@ public class SqliteAccountDAO implements IAccountDAO {
             CREATE TABLE IF NOT EXISTS accounts (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL UNIQUE,
+                email TEXT NOT NULL UNIQUE,
+                firstName TEXT NOT NULL,
+                lastName TEXT NOT NULL,
                 hash TEXT NOT NULL
             );
             """;
@@ -32,15 +35,18 @@ public class SqliteAccountDAO implements IAccountDAO {
     }
 
     @Override
-    public void createAccount(String name, String hash) {
+    public void createAccount(Account account) {
         String query = """
-            INSERT INTO accounts (name, hash)
-            VALUES (?, ?)
+            INSERT INTO accounts (name, email, firstName, lastName, hash)
+            VALUES (?, ?, ?, ?, ?)
             """;
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, name);
-            statement.setString(2, hash);
+            statement.setString(1, account.getName());
+            statement.setString(2, account.getEmail());
+            statement.setString(3, account.getFirstName());
+            statement.setString(4, account.getLastName());
+            statement.setString(5, account.getHash());
             statement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,28 +55,30 @@ public class SqliteAccountDAO implements IAccountDAO {
 
     @Override
     public Account getAccount(int id) {
-//        String query = """
-//            SELECT id, name, hash
-//            FROM accounts
-//            WHERE id = ?
-//            """;
-//
-//        try (PreparedStatement statement = connection.prepareStatement(query)) {
-//            statement.setInt(1, id);
-//
-//            try (ResultSet resultSet = statement.executeQuery()) {
-//                if (resultSet.next()) {
-//                    String name = resultSet.getString("name");
-//                    String hash = resultSet.getString("hash");
-//
-//                    // Adjust constructor parameters to match your Account class definition
-//                    return new Account(name, hash);
-//                }
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        String query = """
+            SELECT name, email, firstName, lastName, hash
+            FROM accounts
+            WHERE id = ?
+            """;
 
-        return null; // Return null if no account exists with the provided id
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    String name = resultSet.getString("name");
+                    String email = resultSet.getString("email");
+                    String firstName = resultSet.getString("firstName");
+                    String lastName = resultSet.getString("lastName");
+                    String hash = resultSet.getString("hash");
+
+                    return new Account(name, email, firstName, lastName, hash);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }
