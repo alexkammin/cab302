@@ -54,15 +54,15 @@ public class SqliteAccountDAO implements IAccountDAO {
     }
 
     @Override
-    public Account getAccount(int id) {
+    public Account getAccountByName(String searchName) {
         String query = """
             SELECT name, email, firstName, lastName, hash
             FROM accounts
-            WHERE id = ?
+            WHERE name = ?
             """;
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, id);
+            statement.setString(1, searchName);
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {

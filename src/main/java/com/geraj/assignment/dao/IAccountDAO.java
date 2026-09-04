@@ -4,5 +4,5 @@ import com.geraj.assignment.model.Account;
 public interface IAccountDAO {
     void createAccount(Account account);
 
-    Account getAccount(int id);
+    Account getAccountByName(String name);
 }
