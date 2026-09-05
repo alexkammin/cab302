@@ -4,6 +4,7 @@ import com.geraj.assignment.dao.IAccountDAO;
 import com.geraj.assignment.dao.IGardenDAO;
 import com.geraj.assignment.dao.SqliteAccountDAO;
 import com.geraj.assignment.dao.SqliteGardenDAO;
+import com.geraj.assignment.model.Account;
 import com.geraj.assignment.model.Garden;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
@@ -27,6 +28,8 @@ public class GardenListController {
 
     @FXML
     public void initialize() {
+        ArrayList<Garden> searchResultGardens = gardenDAO.findGardens(null, null);
+        gardensObservableList.setAll(searchResultGardens);
         gardenListView.setItems(gardensObservableList);
     }
 
