@@ -9,7 +9,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.collections.FXCollections?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.geraj.assignment.controller.MainController">
+      fx:controller="com.geraj.assignment.controller.GardenListController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
@@ -30,24 +30,27 @@
             Gardens
         </Label>
 
-        <ListView>
-            <!--        should be a list of gardens fitting search criteria-->
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Garden 1" />
-                    <String fx:value="Garden 2" />
-                    <String fx:value="Garden 3" />
-                    <String fx:value="Garden 4" />
-                    <String fx:value="Garden 5" />
-                    <String fx:value="Garden 6" />
-                </FXCollections>
-            </items>
+        <ListView fx:id="gardenListView" />
 
-        </ListView>
+<!--        <ListView>-->
+<!--            &lt;!&ndash;        should be a list of gardens fitting search criteria&ndash;&gt;-->
+<!--            <items>-->
+<!--                <FXCollections fx:factory="observableArrayList">-->
+<!--                    <String fx:value="Garden 1" />-->
+<!--                    <String fx:value="Garden 2" />-->
+<!--                    <String fx:value="Garden 3" />-->
+<!--                    <String fx:value="Garden 4" />-->
+<!--                    <String fx:value="Garden 5" />-->
+<!--                    <String fx:value="Garden 6" />-->
+<!--                </FXCollections>-->
+<!--            </items>-->
+
+<!--        </ListView>-->
     </VBox>
 
 
     <Button fx:id="searchButton"
             text="Search"
+            onAction="#onSearch"
     />
 </VBox>

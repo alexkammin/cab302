@@ -91,7 +91,31 @@ public class GardenTest {
         assertSame(newOwner, garden.getOwner());
     }
 
-//    @Test
+    @Test
+    public void testToString() {
+        assertEquals("Name - Location", garden.toString());
+    }
+
+    @Test
+    public void testToStringAfterUpdatingName() {
+        garden.setName("NewName");
+        assertEquals("NewName - Location", garden.toString());
+    }
+
+    @Test
+    public void testToStringAfterUpdatingLocation() {
+        garden.setLocation("NewLocation");
+        assertEquals("Name - NewLocation", garden.toString());
+    }
+
+    @Test
+    public void testToStringAfterUpdatingNameAndLocation() {
+        garden.setName("NewName");
+        garden.setLocation("NewLocation");
+        assertEquals("NewName - NewLocation", garden.toString());
+    }
+
+//    @Tests
 //    public void testGetGardenPlots() {
 //        assertEquals(new ArrayList<GardenPlot>(), garden.getGardenPlots());
 //    }

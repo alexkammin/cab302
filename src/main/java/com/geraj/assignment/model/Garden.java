@@ -73,4 +73,8 @@ public class Garden {
     public void setOwner(Account owner) {
         this.owner = owner;
     }
+
+    public String toString() {
+        return getName() + " - " + getLocation();
+    }
 }

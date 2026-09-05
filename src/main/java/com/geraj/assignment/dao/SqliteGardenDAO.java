@@ -92,7 +92,7 @@ public class SqliteGardenDAO implements IGardenDAO {
             SELECT *
             FROM gardens
             WHERE (? IS NULL OR name LIKE ?)
-              AND (? IS NULL OR location LIKE ?)
+            AND (? IS NULL OR location LIKE ?)
             """;
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
