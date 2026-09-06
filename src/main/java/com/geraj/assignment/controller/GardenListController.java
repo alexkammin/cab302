@@ -29,7 +29,7 @@ public class GardenListController {
     private final ObservableList<Garden> gardensObservableList = FXCollections.observableArrayList();
 
     @FXML
-    public void initialize() {
+    private void initialize() {
         ArrayList<Garden> searchResultGardens = gardenDAO.findGardens(null, null);
         gardensObservableList.setAll(searchResultGardens);
         gardenListView.setItems(gardensObservableList);
@@ -42,7 +42,7 @@ public class GardenListController {
     }
 
     @FXML
-    public void onSearch(ActionEvent actionEvent) {
+    private void onSearch(ActionEvent actionEvent) {
         String nameToSearch = gardenNameTextField.getText();
         String locationToSearch = gardenLocationTextField.getText();
 
@@ -52,14 +52,13 @@ public class GardenListController {
     }
 
     @FXML
-    public void onClickGarden(ActionEvent actionEvent) {
+    private void onClickGarden(ActionEvent actionEvent) {
         Garden selectedGarden = gardenListView.getSelectionModel().getSelectedItem();
 
-        // Ensure an item is actually selected before switching
         if (selectedGarden != null) {
             GardenInfoContoller controller = SceneSwitcher.switchScene(actionEvent, "garden-info-view.fxml");
             if (controller != null) {
-                controller.setInfo(selectedGarden); // Pass the selected garden to the controller
+                controller.setInfo(selectedGarden);
             }
         }
     }

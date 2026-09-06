@@ -16,7 +16,7 @@ public class GardenInfoContoller {
     }
 
     @FXML
-    public void onBack(ActionEvent actionEvent) {
+    private void onBack(ActionEvent actionEvent) {
         SceneSwitcher.switchScene(actionEvent, "garden-list-view.fxml");
     }
 }

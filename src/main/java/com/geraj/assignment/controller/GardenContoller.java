@@ -8,10 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class GardenContoller {
-    @FXML private Button searchButton;
-    @FXML private Button createButton;
-    @FXML private Button selectButton;
-
     @FXML
     private void onSearchButton(ActionEvent actionEvent) {
         SceneSwitcher.switchScene(actionEvent, "garden-list-view.fxml");
