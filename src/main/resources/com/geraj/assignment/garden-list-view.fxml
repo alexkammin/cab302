@@ -31,21 +31,6 @@
         </Label>
 
         <ListView fx:id="gardenListView" />
-
-<!--        <ListView>-->
-<!--            &lt;!&ndash;        should be a list of gardens fitting search criteria&ndash;&gt;-->
-<!--            <items>-->
-<!--                <FXCollections fx:factory="observableArrayList">-->
-<!--                    <String fx:value="Garden 1" />-->
-<!--                    <String fx:value="Garden 2" />-->
-<!--                    <String fx:value="Garden 3" />-->
-<!--                    <String fx:value="Garden 4" />-->
-<!--                    <String fx:value="Garden 5" />-->
-<!--                    <String fx:value="Garden 6" />-->
-<!--                </FXCollections>-->
-<!--            </items>-->
-
-<!--        </ListView>-->
     </VBox>
 
 

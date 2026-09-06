@@ -1,5 +1,6 @@
 package com.geraj.assignment.controller;
 
+import com.geraj.assignment.SceneSwitcher;
 import com.geraj.assignment.dao.IAccountDAO;
 import com.geraj.assignment.dao.IGardenDAO;
 import com.geraj.assignment.dao.SqliteAccountDAO;
@@ -31,6 +32,12 @@ public class GardenListController {
         ArrayList<Garden> searchResultGardens = gardenDAO.findGardens(null, null);
         gardensObservableList.setAll(searchResultGardens);
         gardenListView.setItems(gardensObservableList);
+
+        gardenListView.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2 && gardenListView.getSelectionModel().getSelectedItem() != null) {
+                onClickGarden(new ActionEvent(gardenListView, null));
+            }
+        });
     }
 
     @FXML
@@ -41,5 +48,10 @@ public class GardenListController {
         ArrayList<Garden> searchResultGardens = gardenDAO.findGardens(nameToSearch, locationToSearch);
 
         gardensObservableList.setAll(searchResultGardens);
+    }
+
+    @FXML
+    public void onClickGarden(ActionEvent actionEvent) {
+        SceneSwitcher.switchScene(actionEvent, "garden-info-view.fxml");
     }
 }
