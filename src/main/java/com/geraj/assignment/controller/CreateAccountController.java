@@ -39,6 +39,6 @@ public class CreateAccountController {
 
         Account account = new Account(username, "TEMP_EMAIL_REPLACE_LATER", "TEMP_FIRST_NAME", "TEMP_LAST_NAME", hash);
         accountDAO.createAccount(account);
-        SceneSwitcher.switchScene(actionEvent, "main-view.fxml");
+        SceneSwitcher.switchScene(actionEvent, "garden-view.fxml");
     }
 }

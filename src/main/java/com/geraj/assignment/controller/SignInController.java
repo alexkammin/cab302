@@ -15,6 +15,6 @@ public class SignInController {
 
     @FXML
     private void onSignIn(ActionEvent actionEvent) {
-        SceneSwitcher.switchScene(actionEvent, "main-view.fxml");
+        SceneSwitcher.switchScene(actionEvent, "garden-view.fxml");
     }
 }

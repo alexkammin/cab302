@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.geraj.assignment.controller.GardenContoller"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <VBox>
+        <Label fx:id="mainLabel" text="Garden Page"/>
+        <HBox>
+            <Button fx:id="searchButton"
+                    text="Search for Garden"
+                    onAction="#onSearchButton"
+            />
+            <Button fx:id="createButton"
+                    text="Create a Garden"
+                    onAction="#onCreateButton"
+            />
+
+            <!--    this should be to go to a garden the user has already joined. i dont know what to call it-->
+            <Button fx:id="selectButton"
+                    text="Go to your garden"
+                    onAction="#onSelectButton"
+            />
+        </HBox>
+    </VBox>
+
+</AnchorPane>
