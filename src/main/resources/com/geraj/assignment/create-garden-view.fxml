@@ -11,5 +11,5 @@
             fx:controller="com.geraj.assignment.controller.CreateGardenController"
             prefHeight="400.0" prefWidth="600.0">
 
-    <Label fx:id="createGardenLabel" text="Empty"/>
+    <Label fx:id="createGardenLabel" text="Create Garden Page"/>
 </AnchorPane>
