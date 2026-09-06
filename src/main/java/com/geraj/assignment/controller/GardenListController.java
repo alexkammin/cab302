@@ -12,6 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -52,6 +53,14 @@ public class GardenListController {
 
     @FXML
     public void onClickGarden(ActionEvent actionEvent) {
-        SceneSwitcher.switchScene(actionEvent, "garden-info-view.fxml");
+        Garden selectedGarden = gardenListView.getSelectionModel().getSelectedItem();
+
+        // Ensure an item is actually selected before switching
+        if (selectedGarden != null) {
+            GardenInfoContoller controller = SceneSwitcher.switchScene(actionEvent, "garden-info-view.fxml");
+            if (controller != null) {
+                controller.setInfo(selectedGarden); // Pass the selected garden to the controller
+            }
+        }
     }
 }
