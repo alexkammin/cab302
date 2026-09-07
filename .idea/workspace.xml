@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment="">
+    <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/create-garden-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/create-garden-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/CreateAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/LandingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/LandingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/model/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/create-account-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/create-account-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/landing-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/landing-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/sign-in-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/sign-in-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,20 +43,20 @@
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
       <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0000000000083484" />
-      <entry key="S10" value="1.0000079967638866" />
-      <entry key="S30" value="1.1084788420059484" />
-      <entry key="S60" value="2.439001805297222" />
-      <entry key="M2" value="7.314055478721231" />
-      <entry key="M5" value="20.614192488546536" />
-      <entry key="M10" value="38.37053519178982" />
-      <entry key="M15" value="52.66901541394682" />
-      <entry key="M30" value="78.66315397597971" />
-      <entry key="H1" value="99.55776240215123" />
-      <entry key="H2" value="112.99860891839538" />
-      <entry key="H4" value="120.64794650917098" />
-      <entry key="D1" value="127.55627451840562" />
-      <entry key="W1" value="128.79244703772875" />
+      <entry key="S5" value="1.0000000000000182" />
+      <entry key="S10" value="1.0000001350128445" />
+      <entry key="S30" value="1.005130093376277" />
+      <entry key="S60" value="1.0717240091216187" />
+      <entry key="M2" value="1.3079465569811544" />
+      <entry key="M5" value="4.113614319141403" />
+      <entry key="M10" value="15.193342227691883" />
+      <entry key="M15" value="28.023089268622375" />
+      <entry key="M30" value="57.54940715469985" />
+      <entry key="H1" value="85.98780275138581" />
+      <entry key="H2" value="106.18775350752802" />
+      <entry key="H4" value="118.29658397878801" />
+      <entry key="D1" value="129.5961091102936" />
+      <entry key="W1" value="131.65351941571896" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -73,23 +78,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9592641193252643" />
-      <entry key="MS500" value="0.9917167307382933" />
-      <entry key="S2" value="0.9979227189990506" />
-      <entry key="S5" value="0.9991685692219486" />
-      <entry key="S10" value="0.9995921917940207" />
-      <entry key="S30" value="1.1083081806253885" />
-      <entry key="S60" value="2.438372533199848" />
-      <entry key="M2" value="7.311372828940721" />
-      <entry key="M5" value="20.60927235457093" />
-      <entry key="M10" value="38.365890226130716" />
-      <entry key="M15" value="52.664949697201145" />
-      <entry key="M30" value="78.66033272083895" />
-      <entry key="H1" value="99.55605651050257" />
-      <entry key="H2" value="112.99766404773901" />
-      <entry key="H4" value="120.64744832082535" />
-      <entry key="D1" value="127.55618764669696" />
-      <entry key="W1" value="128.7924345297916" />
+      <entry key="MS100" value="1.6138315422991827E-21" />
+      <entry key="MS500" value="6.943391283401519E-5" />
+      <entry key="S2" value="0.09128363168031911" />
+      <entry key="S5" value="0.3838461279260349" />
+      <entry key="S10" value="0.619553279716815" />
+      <entry key="S30" value="0.8573138363465849" />
+      <entry key="S60" value="0.9928103719384773" />
+      <entry key="M2" value="1.2646400847486305" />
+      <entry key="M5" value="4.093500727532343" />
+      <entry key="M10" value="15.181391043545299" />
+      <entry key="M15" value="28.01403619346359" />
+      <entry key="M30" value="57.543815694333205" />
+      <entry key="H1" value="85.98454346772009" />
+      <entry key="H2" value="106.18596689938151" />
+      <entry key="H4" value="118.29564469932669" />
+      <entry key="D1" value="129.59594551176784" />
+      <entry key="W1" value="131.65349586238457" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -117,7 +122,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "garden-list",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.jshint": "true",
@@ -210,5 +215,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>

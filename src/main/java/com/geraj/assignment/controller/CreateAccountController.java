@@ -5,40 +5,203 @@ import com.geraj.assignment.SceneSwitcher;
 import com.geraj.assignment.dao.IAccountDAO;
 import com.geraj.assignment.dao.SqliteAccountDAO;
 import com.geraj.assignment.model.Account;
-import javafx.beans.binding.Bindings;
+
+import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class CreateAccountController {
 
-    @FXML private TextField usernameTextField;
-    @FXML private PasswordField passwordField;
-    @FXML private Button createAccountButton;
+    @FXML
+    private TextField firstNameTextField;
+
+    @FXML
+    private TextField surnameTextField;
+
+    @FXML
+    private TextField usernameTextField;
+
+    @FXML
+    private TextField emailTextField;
+
+    @FXML
+    private TextField phoneNumberTextField;
+
+    @FXML
+    private TextField postcodeTextField;
+
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
+    private PasswordField confirmPasswordField;
+
+    @FXML
+    private Button createAccountButton;
+
+    @FXML
+    private Label messageLabel;
+
+    private final IAccountDAO accountDAO =
+            new SqliteAccountDAO();
 
     @FXML
     private void initialize() {
-        createAccountButton.disableProperty().bind(
-                Bindings.or(
-                        usernameTextField.textProperty().isEmpty(),
-                        passwordField.textProperty().isEmpty()
-                )
-        );
+
+        /*
+         * Disable the Create Account button while any required
+         * field is empty.
+         */
+        BooleanBinding emptyField =
+                firstNameTextField.textProperty().isEmpty()
+                        .or(surnameTextField.textProperty().isEmpty())
+                        .or(usernameTextField.textProperty().isEmpty())
+                        .or(emailTextField.textProperty().isEmpty())
+                        .or(phoneNumberTextField.textProperty().isEmpty())
+                        .or(postcodeTextField.textProperty().isEmpty())
+                        .or(passwordField.textProperty().isEmpty())
+                        .or(confirmPasswordField.textProperty().isEmpty());
+
+        createAccountButton.disableProperty().bind(emptyField);
     }
 
     @FXML
     private void onCreateAccount(ActionEvent actionEvent) {
-        IAccountDAO accountDAO = new SqliteAccountDAO();
-        PasswordService passwordService = PasswordService.getInstance();
 
-        String username = usernameTextField.getText().trim();
-        char[] password = passwordField.getText().toCharArray();
-        String hash = passwordService.hashPassword(password);
+        String firstName =
+                firstNameTextField.getText().trim();
 
-        Account account = new Account(username, "TEMP_EMAIL_REPLACE_LATER", "TEMP_FIRST_NAME", "TEMP_LAST_NAME", hash);
+        String surname =
+                surnameTextField.getText().trim();
+
+        String username =
+                usernameTextField.getText().trim();
+
+        String email =
+                emailTextField.getText().trim();
+
+        String phoneNumber =
+                phoneNumberTextField.getText().trim();
+
+        String postcode =
+                postcodeTextField.getText().trim();
+
+        String password =
+                passwordField.getText();
+
+        String confirmedPassword =
+                confirmPasswordField.getText();
+
+        messageLabel.setText("");
+
+        if (!password.equals(confirmedPassword)) {
+            messageLabel.setText(
+                    "The passwords do not match."
+            );
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            messageLabel.setText(
+                    "Please enter a valid email address."
+            );
+            return;
+        }
+
+        if (!isValidPhoneNumber(phoneNumber)) {
+            messageLabel.setText(
+                    "Please enter a valid 10-digit Australian phone number."
+            );
+            return;
+        }
+
+        if (!isValidPostcode(postcode)) {
+            messageLabel.setText(
+                    "Please enter a valid 4-digit Australian postcode."
+            );
+            return;
+        }
+
+        if (password.length() < 8) {
+            messageLabel.setText(
+                    "The password must contain at least 8 characters."
+            );
+            return;
+        }
+
+        PasswordService passwordService =
+                PasswordService.getInstance();
+
+        char[] passwordCharacters =
+                password.toCharArray();
+
+        String passwordHash =
+                passwordService.hashPassword(
+                        passwordCharacters
+                );
+
+        /*
+         * Account constructor order:
+         * username, email, first name, surname,
+         * phone number, postcode, password hash.
+         */
+        Account account = new Account(
+                username,
+                email,
+                firstName,
+                surname,
+                phoneNumber,
+                postcode,
+                passwordHash
+        );
+
         accountDAO.createAccount(account);
-        SceneSwitcher.switchScene(actionEvent, "garden-view.fxml");
+
+        /*
+         * After creating the account, send the user
+         * to the sign-in screen.
+         */
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "sign-in-view.fxml"
+        );
+    }
+
+    @FXML
+    private void onBack(ActionEvent actionEvent) {
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "landing-page-view.fxml"
+        );
+    }
+
+    private boolean isValidEmail(String email) {
+        return email.contains("@")
+                && email.contains(".")
+                && !email.startsWith("@")
+                && !email.endsWith(".");
+    }
+
+    private boolean isValidPhoneNumber(String phoneNumber) {
+
+        /*
+         * Remove spaces so both of these are accepted:
+         * 0412345678
+         * 0412 345 678
+         */
+        String phoneNumberWithoutSpaces =
+                phoneNumber.replaceAll("\\s", "");
+
+        return phoneNumberWithoutSpaces.matches(
+                "0\\d{9}"
+        );
+    }
+
+    private boolean isValidPostcode(String postcode) {
+        return postcode.matches("\\d{4}");
     }
 }
