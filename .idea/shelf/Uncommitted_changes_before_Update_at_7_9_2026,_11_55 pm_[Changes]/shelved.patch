@@ -1,0 +1,822 @@
+Index: src/main/resources/com/geraj/assignment/sign-in-view.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<?import javafx.geometry.Insets?>\n<?import javafx.scene.control.Label?>\n<?import javafx.scene.layout.VBox?>\n<?import javafx.scene.control.TextField?>\n<?import javafx.scene.control.PasswordField?>\n<?import javafx.scene.control.Button?>\n<?import javafx.scene.layout.GridPane?>\n<VBox alignment=\"CENTER\" spacing=\"20.0\" xmlns:fx=\"http://javafx.com/fxml\"\n      fx:controller=\"com.geraj.assignment.controller.SignInController\">\n    <padding>\n        <Insets bottom=\"20.0\" left=\"20.0\" right=\"20.0\" top=\"20.0\"/>\n    </padding>\n\n    <Label text=\"Welcome to CAB302 GERAJ Application!\" />\n    <Label text=\"Sign in to Your Account\" />\n\n    <GridPane hgap=\"5.0\" vgap=\"5.0\" alignment=\"CENTER\">\n        <Label text=\"Enter Username:\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"0\" />\n        <Label text=\"Enter Password:\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"1\" />\n        <TextField fx:id=\"usernameTextField\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"0\"/>\n        <PasswordField fx:id=\"passwordField\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"1\"/>\n    </GridPane>\n\n<!--    <Button fx:id=\"SignInButton\"-->\n<!--            text=\"Sign In\"-->\n<!--            onAction=\"#onSignIn\"-->\n<!--    />-->\n</VBox>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/geraj/assignment/sign-in-view.fxml b/src/main/resources/com/geraj/assignment/sign-in-view.fxml
+--- a/src/main/resources/com/geraj/assignment/sign-in-view.fxml	(revision aa7fe0a6f8eaf70df7e53e7767a75fd204bba79d)
++++ b/src/main/resources/com/geraj/assignment/sign-in-view.fxml	(date 1788789020217)
+@@ -1,30 +1,64 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+ <?import javafx.geometry.Insets?>
++<?import javafx.scene.control.Button?>
+ <?import javafx.scene.control.Label?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.control.TextField?>
+ <?import javafx.scene.control.PasswordField?>
+-<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.TextField?>
+ <?import javafx.scene.layout.GridPane?>
+-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
++<?import javafx.scene.layout.VBox?>
++
++<VBox alignment="CENTER"
++      spacing="20.0"
++      xmlns="http://javafx.com/javafx"
++      xmlns:fx="http://javafx.com/fxml"
+       fx:controller="com.geraj.assignment.controller.SignInController">
++
+     <padding>
+-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
++        <Insets top="20.0"
++                right="20.0"
++                bottom="20.0"
++                left="20.0"/>
+     </padding>
+ 
+-    <Label text="Welcome to CAB302 GERAJ Application!" />
+-    <Label text="Sign in to Your Account" />
++    <Label text="Welcome to the CAB302 GERAJ Application!"/>
++    <Label text="Sign In to Your Account"/>
++
++    <GridPane alignment="CENTER"
++              hgap="10.0"
++              vgap="10.0">
+ 
+-    <GridPane hgap="5.0" vgap="5.0" alignment="CENTER">
+-        <Label text="Enter Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+-        <Label text="Enter Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+-        <TextField fx:id="usernameTextField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+-        <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
++        <Label text="Enter Username:"
++               GridPane.columnIndex="0"
++               GridPane.rowIndex="0"/>
++
++        <TextField fx:id="usernameTextField"
++                   promptText="Username"
++                   GridPane.columnIndex="1"
++                   GridPane.rowIndex="0"/>
++
++        <Label text="Enter Password:"
++               GridPane.columnIndex="0"
++               GridPane.rowIndex="1"/>
++
++        <PasswordField fx:id="passwordField"
++                       promptText="Password"
++                       GridPane.columnIndex="1"
++                       GridPane.rowIndex="1"/>
++
+     </GridPane>
+ 
+-<!--    <Button fx:id="SignInButton"-->
+-<!--            text="Sign In"-->
+-<!--            onAction="#onSignIn"-->
+-<!--    />-->
+-</VBox>
++    <Label fx:id="messageLabel"
++           textFill="RED"
++           wrapText="true"/>
++
++    <Button fx:id="signInButton"
++            text="Sign In"
++            prefWidth="200.0"
++            onAction="#onSignIn"/>
++
++    <Button text="Back"
++            prefWidth="200.0"
++            onAction="#onBack"/>
++
++</VBox>
+\ No newline at end of file
+Index: src/main/java/com/geraj/assignment/controller/CreateAccountController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.geraj.assignment.controller;\n\nimport com.geraj.assignment.PasswordService;\nimport com.geraj.assignment.SceneSwitcher;\nimport com.geraj.assignment.dao.IAccountDAO;\nimport com.geraj.assignment.dao.SqliteAccountDAO;\nimport javafx.beans.binding.Bindings;\nimport javafx.event.ActionEvent;\nimport javafx.fxml.FXML;\nimport javafx.scene.control.TextField;\nimport javafx.scene.control.PasswordField;\nimport javafx.scene.control.Button;\n\npublic class CreateAccountController {\n\n    @FXML private TextField usernameTextField;\n    @FXML private PasswordField passwordField;\n    @FXML private Button createAccountButton;\n\n    @FXML\n    private void initialize() {\n        createAccountButton.disableProperty().bind(\n                Bindings.or(\n                        usernameTextField.textProperty().isEmpty(),\n                        passwordField.textProperty().isEmpty()\n                )\n        );\n    }\n\n    @FXML\n    private void onCreateAccount(ActionEvent actionEvent) {\n        IAccountDAO accountDAO = new SqliteAccountDAO();\n        PasswordService passwordService = PasswordService.getInstance();\n\n        String username = usernameTextField.getText().trim();\n        char[] password = passwordField.getText().toCharArray();\n        String hash = passwordService.hashPassword(password);\n\n        accountDAO.createAccount(username, hash);\n        SceneSwitcher.switchScene(actionEvent, \"main-view.fxml\");\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/geraj/assignment/controller/CreateAccountController.java b/src/main/java/com/geraj/assignment/controller/CreateAccountController.java
+--- a/src/main/java/com/geraj/assignment/controller/CreateAccountController.java	(revision aa7fe0a6f8eaf70df7e53e7767a75fd204bba79d)
++++ b/src/main/java/com/geraj/assignment/controller/CreateAccountController.java	(date 1788789071824)
+@@ -4,39 +4,181 @@
+ import com.geraj.assignment.SceneSwitcher;
+ import com.geraj.assignment.dao.IAccountDAO;
+ import com.geraj.assignment.dao.SqliteAccountDAO;
+-import javafx.beans.binding.Bindings;
++
++import javafx.beans.binding.BooleanBinding;
+ import javafx.event.ActionEvent;
+ import javafx.fxml.FXML;
+-import javafx.scene.control.TextField;
+-import javafx.scene.control.PasswordField;
+ import javafx.scene.control.Button;
++import javafx.scene.control.Label;
++import javafx.scene.control.PasswordField;
++import javafx.scene.control.TextField;
+ 
+ public class CreateAccountController {
+ 
+-    @FXML private TextField usernameTextField;
+-    @FXML private PasswordField passwordField;
+-    @FXML private Button createAccountButton;
++    @FXML
++    private TextField firstNameTextField;
++
++    @FXML
++    private TextField surnameTextField;
++
++    @FXML
++    private TextField usernameTextField;
++
++    @FXML
++    private TextField emailTextField;
++
++    @FXML
++    private TextField phoneNumberTextField;
++
++    @FXML
++    private TextField postcodeTextField;
++
++    @FXML
++    private PasswordField passwordField;
++
++    @FXML
++    private PasswordField confirmPasswordField;
++
++    @FXML
++    private Button createAccountButton;
++
++    @FXML
++    private Label messageLabel;
++
++    private final IAccountDAO accountDAO =
++            new SqliteAccountDAO();
+ 
+     @FXML
+     private void initialize() {
+-        createAccountButton.disableProperty().bind(
+-                Bindings.or(
+-                        usernameTextField.textProperty().isEmpty(),
+-                        passwordField.textProperty().isEmpty()
+-                )
+-        );
++
++        BooleanBinding emptyField =
++                firstNameTextField.textProperty().isEmpty()
++                        .or(surnameTextField.textProperty().isEmpty())
++                        .or(usernameTextField.textProperty().isEmpty())
++                        .or(emailTextField.textProperty().isEmpty())
++                        .or(phoneNumberTextField.textProperty().isEmpty())
++                        .or(postcodeTextField.textProperty().isEmpty())
++                        .or(passwordField.textProperty().isEmpty())
++                        .or(confirmPasswordField.textProperty().isEmpty());
++
++        createAccountButton.disableProperty().bind(emptyField);
+     }
+ 
+     @FXML
+     private void onCreateAccount(ActionEvent actionEvent) {
+-        IAccountDAO accountDAO = new SqliteAccountDAO();
+-        PasswordService passwordService = PasswordService.getInstance();
++
++        String firstName =
++                firstNameTextField.getText().trim();
++
++        String surname =
++                surnameTextField.getText().trim();
++
++        String username =
++                usernameTextField.getText().trim();
++
++        String email =
++                emailTextField.getText().trim();
++
++        String phoneNumber =
++                phoneNumberTextField.getText().trim();
++
++        String postcode =
++                postcodeTextField.getText().trim();
++
++        String password =
++                passwordField.getText();
++
++        String confirmedPassword =
++                confirmPasswordField.getText();
++
++        messageLabel.setText("");
++
++        if (!password.equals(confirmedPassword)) {
++            messageLabel.setText(
++                    "The passwords do not match."
++            );
++            return;
++        }
++
++        if (!isValidEmail(email)) {
++            messageLabel.setText(
++                    "Please enter a valid email address."
++            );
++            return;
++        }
++
++        if (!isValidPhoneNumber(phoneNumber)) {
++            messageLabel.setText(
++                    "Please enter a valid 10-digit Australian phone number."
++            );
++            return;
++        }
+ 
+-        String username = usernameTextField.getText().trim();
+-        char[] password = passwordField.getText().toCharArray();
+-        String hash = passwordService.hashPassword(password);
++        if (!isValidPostcode(postcode)) {
++            messageLabel.setText(
++                    "Please enter a valid 4-digit Australian postcode."
++            );
++            return;
++        }
+ 
+-        accountDAO.createAccount(username, hash);
+-        SceneSwitcher.switchScene(actionEvent, "main-view.fxml");
++        if (password.length() < 8) {
++            messageLabel.setText(
++                    "The password must contain at least 8 characters."
++            );
++            return;
++        }
++
++        PasswordService passwordService =
++                PasswordService.getInstance();
++
++        char[] passwordCharacters =
++                password.toCharArray();
++
++        String passwordHash =
++                passwordService.hashPassword(
++                        passwordCharacters
++                );
++
++        accountDAO.createAccount(
++                username,
++                passwordHash
++        );
++
++        /*
++         * After account creation, take the user to the sign-in page.
++         */
++        SceneSwitcher.switchScene(
++                actionEvent,
++                "sign-in-view.fxml"
++        );
+     }
+-}
++
++    @FXML
++    private void onBack(ActionEvent actionEvent) {
++        SceneSwitcher.switchScene(
++                actionEvent,
++                "landing-page-view.fxml"
++        );
++    }
++
++    private boolean isValidEmail(String email) {
++        return email.contains("@")
++                && email.contains(".")
++                && !email.startsWith("@")
++                && !email.endsWith(".");
++    }
++
++    private boolean isValidPhoneNumber(String phoneNumber) {
++
++        String phoneNumberWithoutSpaces =
++                phoneNumber.replaceAll("\\s", "");
++
++        return phoneNumberWithoutSpaces.matches(
++                "0\\d{9}"
++        );
++    }
++
++    private boolean isValidPostcode(String postcode) {
++        return postcode.matches("\\d{4}");
++    }
++}
+\ No newline at end of file
+Index: src/main/resources/com/geraj/assignment/create-account-view.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<?import javafx.geometry.Insets?>\n<?import javafx.scene.control.Label?>\n<?import javafx.scene.layout.VBox?>\n<?import javafx.scene.control.TextField?>\n<?import javafx.scene.control.PasswordField?>\n<?import javafx.scene.control.Button?>\n<?import javafx.scene.layout.GridPane?>\n<VBox alignment=\"CENTER\" spacing=\"20.0\" xmlns:fx=\"http://javafx.com/fxml\"\n      fx:controller=\"com.geraj.assignment.controller.CreateAccountController\">\n  <padding>\n    <Insets bottom=\"20.0\" left=\"20.0\" right=\"20.0\" top=\"20.0\"/>\n  </padding>\n\n  <Label text=\"Welcome to CAB302 GERAJ Application!\" />\n  <Label text=\"Create an account\" />\n\n  <GridPane hgap=\"5.0\" vgap=\"5.0\" alignment=\"CENTER\">\n    <Label text=\"Enter First Name:\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"0\" />\n    <Label text=\"Enter Surname:\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"1\" />\n    <Label text=\"Create Username:\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"2\" />\n    <Label text=\"Enter Email:\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"3\" />\n    <Label text=\"Enter Password:\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"4\" />\n    <Label text=\"Confirm Password:\" GridPane.columnIndex=\"0\" GridPane.rowIndex=\"5\" />\n    <TextField fx:id=\"firstnameTextField\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"0\"/>\n    <TextField fx:id=\"surnameTextField\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"1\"/>\n    <TextField fx:id=\"usernameTextField\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"2\"/>\n    <TextField fx:id=\"emailTextField\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"3\"/>\n    <PasswordField fx:id=\"passwordField\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"4\"/>\n    <PasswordField fx:id=\"confirmpasswordField\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"5\"/>\n  </GridPane>\n\n  <Button fx:id=\"createAccountButton\"\n          text=\"Create Account\"\n          onAction=\"#onCreateAccount\"\n  />\n</VBox>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/geraj/assignment/create-account-view.fxml b/src/main/resources/com/geraj/assignment/create-account-view.fxml
+--- a/src/main/resources/com/geraj/assignment/create-account-view.fxml	(revision aa7fe0a6f8eaf70df7e53e7767a75fd204bba79d)
++++ b/src/main/resources/com/geraj/assignment/create-account-view.fxml	(date 1788789046989)
+@@ -1,38 +1,118 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+ <?import javafx.geometry.Insets?>
++<?import javafx.scene.control.Button?>
+ <?import javafx.scene.control.Label?>
+-<?import javafx.scene.layout.VBox?>
+-<?import javafx.scene.control.TextField?>
+ <?import javafx.scene.control.PasswordField?>
+-<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.TextField?>
+ <?import javafx.scene.layout.GridPane?>
+-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
++<?import javafx.scene.layout.VBox?>
++
++<VBox alignment="CENTER"
++      spacing="20.0"
++      xmlns="http://javafx.com/javafx"
++      xmlns:fx="http://javafx.com/fxml"
+       fx:controller="com.geraj.assignment.controller.CreateAccountController">
++
+   <padding>
+-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
++    <Insets top="20.0"
++            right="20.0"
++            bottom="20.0"
++            left="20.0"/>
+   </padding>
+ 
+-  <Label text="Welcome to CAB302 GERAJ Application!" />
+-  <Label text="Create an account" />
++  <Label text="Welcome to the CAB302 GERAJ Application!"/>
++  <Label text="Create an Account"/>
++
++  <GridPane alignment="CENTER"
++            hgap="10.0"
++            vgap="10.0">
+ 
+-  <GridPane hgap="5.0" vgap="5.0" alignment="CENTER">
+-    <Label text="Enter First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+-    <Label text="Enter Surname:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+-    <Label text="Create Username:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+-    <Label text="Enter Email:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+-    <Label text="Enter Password:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+-    <Label text="Confirm Password:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+-    <TextField fx:id="firstnameTextField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+-    <TextField fx:id="surnameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+-    <TextField fx:id="usernameTextField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+-    <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+-    <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+-    <PasswordField fx:id="confirmpasswordField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
++    <Label text="Enter First Name:"
++           GridPane.columnIndex="0"
++           GridPane.rowIndex="0"/>
++
++    <TextField fx:id="firstNameTextField"
++               promptText="First name"
++               GridPane.columnIndex="1"
++               GridPane.rowIndex="0"/>
++
++    <Label text="Enter Surname:"
++           GridPane.columnIndex="0"
++           GridPane.rowIndex="1"/>
++
++    <TextField fx:id="surnameTextField"
++               promptText="Surname"
++               GridPane.columnIndex="1"
++               GridPane.rowIndex="1"/>
++
++    <Label text="Create Username:"
++           GridPane.columnIndex="0"
++           GridPane.rowIndex="2"/>
++
++    <TextField fx:id="usernameTextField"
++               promptText="Username"
++               GridPane.columnIndex="1"
++               GridPane.rowIndex="2"/>
++
++    <Label text="Enter Email:"
++           GridPane.columnIndex="0"
++           GridPane.rowIndex="3"/>
++
++    <TextField fx:id="emailTextField"
++               promptText="Email address"
++               GridPane.columnIndex="1"
++               GridPane.rowIndex="3"/>
++
++    <Label text="Enter Phone Number:"
++           GridPane.columnIndex="0"
++           GridPane.rowIndex="4"/>
++
++    <TextField fx:id="phoneNumberTextField"
++               promptText="Phone number"
++               GridPane.columnIndex="1"
++               GridPane.rowIndex="4"/>
++
++    <Label text="Enter Postcode:"
++           GridPane.columnIndex="0"
++           GridPane.rowIndex="5"/>
++
++    <TextField fx:id="postcodeTextField"
++               promptText="Postcode"
++               GridPane.columnIndex="1"
++               GridPane.rowIndex="5"/>
++
++    <Label text="Enter Password:"
++           GridPane.columnIndex="0"
++           GridPane.rowIndex="6"/>
++
++    <PasswordField fx:id="passwordField"
++                   promptText="Password"
++                   GridPane.columnIndex="1"
++                   GridPane.rowIndex="6"/>
++
++    <Label text="Confirm Password:"
++           GridPane.columnIndex="0"
++           GridPane.rowIndex="7"/>
++
++    <PasswordField fx:id="confirmPasswordField"
++                   promptText="Confirm password"
++                   GridPane.columnIndex="1"
++                   GridPane.rowIndex="7"/>
++
+   </GridPane>
+ 
++  <Label fx:id="messageLabel"
++         textFill="RED"
++         wrapText="true"/>
++
+   <Button fx:id="createAccountButton"
+           text="Create Account"
+-          onAction="#onCreateAccount"
+-  />
+-</VBox>
++          prefWidth="200.0"
++          onAction="#onCreateAccount"/>
++
++  <Button text="Back"
++          prefWidth="200.0"
++          onAction="#onBack"/>
++
++</VBox>
+\ No newline at end of file
+Index: src/main/java/com/geraj/assignment/controller/SignInController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.geraj.assignment.controller;\n\npublic class SignInController {\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/geraj/assignment/controller/SignInController.java b/src/main/java/com/geraj/assignment/controller/SignInController.java
+--- a/src/main/java/com/geraj/assignment/controller/SignInController.java	(revision aa7fe0a6f8eaf70df7e53e7767a75fd204bba79d)
++++ b/src/main/java/com/geraj/assignment/controller/SignInController.java	(date 1788789029864)
+@@ -1,4 +1,74 @@
+ package com.geraj.assignment.controller;
+ 
++import com.geraj.assignment.SceneSwitcher;
++
++import javafx.beans.binding.BooleanBinding;
++import javafx.event.ActionEvent;
++import javafx.fxml.FXML;
++import javafx.scene.control.Button;
++import javafx.scene.control.Label;
++import javafx.scene.control.PasswordField;
++import javafx.scene.control.TextField;
++
+ public class SignInController {
+-}
++
++    @FXML
++    private TextField usernameTextField;
++
++    @FXML
++    private PasswordField passwordField;
++
++    @FXML
++    private Button signInButton;
++
++    @FXML
++    private Label messageLabel;
++
++    @FXML
++    private void initialize() {
++
++        BooleanBinding emptyField =
++                usernameTextField.textProperty().isEmpty()
++                        .or(passwordField.textProperty().isEmpty());
++
++        signInButton.disableProperty().bind(emptyField);
++    }
++
++    @FXML
++    private void onSignIn(ActionEvent actionEvent) {
++
++        String username = usernameTextField.getText().trim();
++        String password = passwordField.getText();
++
++        messageLabel.setText("");
++
++        if (username.isEmpty() || password.isEmpty()) {
++            messageLabel.setText(
++                    "Please enter your username and password."
++            );
++            return;
++        }
++
++        /*
++         * Add database authentication here.
++         * Once authentication succeeds, switch to the main page:
++         *
++         * SceneSwitcher.switchScene(
++         *         actionEvent,
++         *         "main-view.fxml"
++         * );
++         */
++
++        messageLabel.setText(
++                "Sign-in authentication still needs to be connected."
++        );
++    }
++
++    @FXML
++    private void onBack(ActionEvent actionEvent) {
++        SceneSwitcher.switchScene(
++                actionEvent,
++                "landing-page-view.fxml"
++        );
++    }
++}
+\ No newline at end of file
+Index: src/main/java/com/geraj/assignment/controller/MainController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.geraj.assignment.controller;\n\nimport javafx.fxml.FXML;\nimport javafx.scene.control.Label;\n\npublic class MainController {\n    @FXML private Label mainLabel;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/geraj/assignment/controller/MainController.java b/src/main/java/com/geraj/assignment/controller/MainController.java
+--- a/src/main/java/com/geraj/assignment/controller/MainController.java	(revision aa7fe0a6f8eaf70df7e53e7767a75fd204bba79d)
++++ b/src/main/java/com/geraj/assignment/controller/MainController.java	(date 1788789197723)
+@@ -5,4 +5,5 @@
+ 
+ public class MainController {
+     @FXML private Label mainLabel;
++
+ }
+Index: src/main/java/com/geraj/assignment/GerajApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.geraj.assignment;\n\nimport javafx.application.Application;\nimport javafx.fxml.FXMLLoader;\nimport javafx.scene.Scene;\nimport javafx.stage.Stage;\n\nimport java.io.IOException;\n\npublic class GerajApplication extends Application {\n    // Constants defining the window title and size\n    public static final String TITLE = \"CAB302 GERAJ Application\";\n    public static final int WIDTH = 640;\n    public static final int HEIGHT = 360;\n\n    @Override\n    public void start(Stage stage) throws IOException {\n        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource(\"create-account-view.fxml\"));\n        Scene scene = new Scene(fxmlLoader.load(), WIDTH, HEIGHT);\n        stage.setTitle(TITLE);\n        stage.setScene(scene);\n        stage.show();\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/geraj/assignment/GerajApplication.java b/src/main/java/com/geraj/assignment/GerajApplication.java
+--- a/src/main/java/com/geraj/assignment/GerajApplication.java	(revision aa7fe0a6f8eaf70df7e53e7767a75fd204bba79d)
++++ b/src/main/java/com/geraj/assignment/GerajApplication.java	(date 1788789260696)
+@@ -15,7 +15,7 @@
+ 
+     @Override
+     public void start(Stage stage) throws IOException {
+-        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("create-account-view.fxml"));
++        FXMLLoader fxmlLoader = new FXMLLoader(GerajApplication.class.getResource("landing-page-view.fxml"));
+         Scene scene = new Scene(fxmlLoader.load(), WIDTH, HEIGHT);
+         stage.setTitle(TITLE);
+         stage.setScene(scene);
+Index: src/main/java/com/geraj/assignment/controller/LandingPageController.java
+===================================================================
+diff --git a/src/main/java/com/geraj/assignment/controller/LandingPageController.java b/src/main/java/com/geraj/assignment/controller/LandingPageController.java
+new file mode 100644
+--- /dev/null	(date 1788788962365)
++++ b/src/main/java/com/geraj/assignment/controller/LandingPageController.java	(date 1788788962365)
+@@ -0,0 +1,25 @@
++package com.geraj.assignment.controller;
++
++import com.geraj.assignment.SceneSwitcher;
++
++import javafx.event.ActionEvent;
++import javafx.fxml.FXML;
++
++public class LandingPageController {
++
++    @FXML
++    private void onSignIn(ActionEvent actionEvent) {
++        SceneSwitcher.switchScene(
++                actionEvent,
++                "sign-in-view.fxml"
++        );
++    }
++
++    @FXML
++    private void onCreateAccount(ActionEvent actionEvent) {
++        SceneSwitcher.switchScene(
++                actionEvent,
++                "create-account-view.fxml"
++        );
++    }
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"eb8f7bd3-65b8-43ff-a356-b732a5f7ea32\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/accounts.db\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/accounts.db\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/com/geraj/assignment/create-account-view.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/com/geraj/assignment/create-account-view.fxml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/com/geraj/assignment/sign-in-view.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/com/geraj/assignment/sign-in-view.fxml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"FxmlFile\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"generalSettings\">\n      <MavenGeneralSettings>\n        <option name=\"mavenHomeTypeForPersistence\" value=\"WRAPPER\" />\n      </MavenGeneralSettings>\n    </option>\n  </component>\n  <component name=\"NextEditCompletionFeaturesState\">\n    <decayedCancelled>\n      <entry key=\"MS100\" value=\"1.0\" />\n      <entry key=\"MS500\" value=\"1.0\" />\n      <entry key=\"S2\" value=\"1.0\" />\n      <entry key=\"S5\" value=\"1.0000000000083484\" />\n      <entry key=\"S10\" value=\"1.0000079967638866\" />\n      <entry key=\"S30\" value=\"1.1084788420059484\" />\n      <entry key=\"S60\" value=\"2.439001805297222\" />\n      <entry key=\"M2\" value=\"7.314055478721231\" />\n      <entry key=\"M5\" value=\"20.614192488546536\" />\n      <entry key=\"M10\" value=\"38.37053519178982\" />\n      <entry key=\"M15\" value=\"52.66901541394682\" />\n      <entry key=\"M30\" value=\"78.66315397597971\" />\n      <entry key=\"H1\" value=\"99.55776240215123\" />\n      <entry key=\"H2\" value=\"112.99860891839538\" />\n      <entry key=\"H4\" value=\"120.64794650917098\" />\n      <entry key=\"D1\" value=\"127.55627451840562\" />\n      <entry key=\"W1\" value=\"128.79244703772875\" />\n    </decayedCancelled>\n    <decayedSelected>\n      <entry key=\"MS100\" value=\"0.0\" />\n      <entry key=\"MS500\" value=\"0.0\" />\n      <entry key=\"S2\" value=\"0.0\" />\n      <entry key=\"S5\" value=\"0.0\" />\n      <entry key=\"S10\" value=\"0.0\" />\n      <entry key=\"S30\" value=\"0.0\" />\n      <entry key=\"S60\" value=\"0.0\" />\n      <entry key=\"M2\" value=\"0.0\" />\n      <entry key=\"M5\" value=\"0.0\" />\n      <entry key=\"M10\" value=\"0.0\" />\n      <entry key=\"M15\" value=\"0.0\" />\n      <entry key=\"M30\" value=\"0.0\" />\n      <entry key=\"H1\" value=\"0.0\" />\n      <entry key=\"H2\" value=\"0.0\" />\n      <entry key=\"H4\" value=\"0.0\" />\n      <entry key=\"D1\" value=\"0.0\" />\n      <entry key=\"W1\" value=\"0.0\" />\n    </decayedSelected>\n    <decayedShown>\n      <entry key=\"MS100\" value=\"0.9592641193252643\" />\n      <entry key=\"MS500\" value=\"0.9917167307382933\" />\n      <entry key=\"S2\" value=\"0.9979227189990506\" />\n      <entry key=\"S5\" value=\"0.9991685692219486\" />\n      <entry key=\"S10\" value=\"0.9995921917940207\" />\n      <entry key=\"S30\" value=\"1.1083081806253885\" />\n      <entry key=\"S60\" value=\"2.438372533199848\" />\n      <entry key=\"M2\" value=\"7.311372828940721\" />\n      <entry key=\"M5\" value=\"20.60927235457093\" />\n      <entry key=\"M10\" value=\"38.365890226130716\" />\n      <entry key=\"M15\" value=\"52.664949697201145\" />\n      <entry key=\"M30\" value=\"78.66033272083895\" />\n      <entry key=\"H1\" value=\"99.55605651050257\" />\n      <entry key=\"H2\" value=\"112.99766404773901\" />\n      <entry key=\"H4\" value=\"120.64744832082535\" />\n      <entry key=\"D1\" value=\"127.55618764669696\" />\n      <entry key=\"W1\" value=\"128.7924345297916\" />\n    </decayedShown>\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 0\n}</component>\n  <component name=\"ProjectId\" id=\"3HwNRTX2jbLMrRz2ZZAG321hmvW\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"Application.GerajApplication.executor\": \"Run\",\n    \"Application.HelloApplication.executor\": \"Run\",\n    \"JUnit.All in Assignment.executor\": \"Run\",\n    \"JUnit.PasswordServiceTest.executor\": \"Run\",\n    \"JUnit.UserTest.executor\": \"Run\",\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.git.unshallow\": \"true\",\n    \"RunOnceActivity.typescript.service.memoryLimit.init\": \"true\",\n    \"codeWithMe.voiceChat.enabledByDefault\": \"false\",\n    \"git-widget-placeholder\": \"main\",\n    \"ignore.virus.scanning.warn.message\": \"true\",\n    \"kotlin-language-version-configured\": \"true\",\n    \"node.js.detected.package.jshint\": \"true\",\n    \"node.js.selected.package.jshint\": \"\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"project.structure.last.edited\": \"Modules\",\n    \"project.structure.proportion\": \"0.15\",\n    \"project.structure.side.proportion\": \"0.2\",\n    \"settings.editor.selected.configurable\": \"org.jetbrains.plugins.github.ui.GithubSettingsConfigurable\"\n  }\n}]]></component>\n  <component name=\"RunManager\" selected=\"Application.GerajApplication\">\n    <configuration name=\"GerajApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.geraj.assignment.GerajApplication\" />\n      <module name=\"Assignment\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.geraj.assignment.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"All in Assignment\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"Assignment\" />\n      <option name=\"PACKAGE_NAME\" value=\"\" />\n      <option name=\"TEST_OBJECT\" value=\"package\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.GerajApplication\" />\n        <item itemvalue=\"JUnit.All in Assignment\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-jdk-30f59d01ecdd-63390994e64e-intellij.indexing.shared.core-IU-262.8665.337\" />\n        <option value=\"bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.8665.337\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"eb8f7bd3-65b8-43ff-a356-b732a5f7ea32\" name=\"Changes\" comment=\"\" />\n      <created>1786775163396</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1786775163396</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision aa7fe0a6f8eaf70df7e53e7767a75fd204bba79d)
++++ b/.idea/workspace.xml	(date 1788789260729)
+@@ -4,9 +4,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment="">
++    <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment="sign in view">
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/LandingPageController.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/landing-page-view.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/accounts.db" beforeDir="false" afterPath="$PROJECT_DIR$/accounts.db" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/CreateAccountController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/MainController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/SignInController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/create-account-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/create-account-view.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/sign-in-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/sign-in-view.fxml" afterDir="false" />
+     </list>
+@@ -26,6 +31,18 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "lastFilter": {
++    "state": "OPEN",
++    "assignee": "ethanwilliams1000-maker"
++  }
++}]]></component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/alexkammin/cab302.git",
++    "accountId": "02436a40-b352-443b-9e2e-ed38f7842457"
++  }
++}]]></component>
+   <component name="MavenImportPreferences">
+     <option name="generalSettings">
+       <MavenGeneralSettings>
+@@ -35,23 +52,23 @@
+   </component>
+   <component name="NextEditCompletionFeaturesState">
+     <decayedCancelled>
+-      <entry key="MS100" value="1.0" />
+-      <entry key="MS500" value="1.0" />
+-      <entry key="S2" value="1.0" />
+-      <entry key="S5" value="1.0000000000083484" />
+-      <entry key="S10" value="1.0000079967638866" />
+-      <entry key="S30" value="1.1084788420059484" />
+-      <entry key="S60" value="2.439001805297222" />
+-      <entry key="M2" value="7.314055478721231" />
+-      <entry key="M5" value="20.614192488546536" />
+-      <entry key="M10" value="38.37053519178982" />
+-      <entry key="M15" value="52.66901541394682" />
+-      <entry key="M30" value="78.66315397597971" />
+-      <entry key="H1" value="99.55776240215123" />
+-      <entry key="H2" value="112.99860891839538" />
+-      <entry key="H4" value="120.64794650917098" />
+-      <entry key="D1" value="127.55627451840562" />
+-      <entry key="W1" value="128.79244703772875" />
++      <entry key="MS100" value="1.2672329631635983" />
++      <entry key="MS500" value="2.9940892733016247" />
++      <entry key="S2" value="5.2953028414510195" />
++      <entry key="S5" value="6.222130392466521" />
++      <entry key="S10" value="6.592804383212825" />
++      <entry key="S30" value="7.040077414710263" />
++      <entry key="S60" value="8.373985384363298" />
++      <entry key="M2" value="11.238628727083666" />
++      <entry key="M5" value="16.90203489186342" />
++      <entry key="M10" value="29.118321101306712" />
++      <entry key="M15" value="43.64820974732581" />
++      <entry key="M30" value="79.96614810010279" />
++      <entry key="H1" value="118.11007904575723" />
++      <entry key="H2" value="146.7621710885786" />
++      <entry key="H4" value="164.48569370227293" />
++      <entry key="D1" value="181.36756974948688" />
++      <entry key="W1" value="184.47557868695185" />
+     </decayedCancelled>
+     <decayedSelected>
+       <entry key="MS100" value="0.0" />
+@@ -73,24 +90,27 @@
+       <entry key="W1" value="0.0" />
+     </decayedSelected>
+     <decayedShown>
+-      <entry key="MS100" value="0.9592641193252643" />
+-      <entry key="MS500" value="0.9917167307382933" />
+-      <entry key="S2" value="0.9979227189990506" />
+-      <entry key="S5" value="0.9991685692219486" />
+-      <entry key="S10" value="0.9995921917940207" />
+-      <entry key="S30" value="1.1083081806253885" />
+-      <entry key="S60" value="2.438372533199848" />
+-      <entry key="M2" value="7.311372828940721" />
+-      <entry key="M5" value="20.60927235457093" />
+-      <entry key="M10" value="38.365890226130716" />
+-      <entry key="M15" value="52.664949697201145" />
+-      <entry key="M30" value="78.66033272083895" />
+-      <entry key="H1" value="99.55605651050257" />
+-      <entry key="H2" value="112.99766404773901" />
+-      <entry key="H4" value="120.64744832082535" />
+-      <entry key="D1" value="127.55618764669696" />
+-      <entry key="W1" value="128.7924345297916" />
++      <entry key="MS100" value="1.2175221393138516" />
++      <entry key="MS500" value="2.9544028218989977" />
++      <entry key="S2" value="5.276217098025217" />
++      <entry key="S5" value="6.213194675942857" />
++      <entry key="S10" value="6.588084246580219" />
++      <entry key="S30" value="7.037128650109648" />
++      <entry key="S60" value="8.366397006361236" />
++      <entry key="M2" value="11.22668663806688" />
++      <entry key="M5" value="16.891684447712752" />
++      <entry key="M10" value="29.110679420041823" />
++      <entry key="M15" value="43.641841319339704" />
++      <entry key="M30" value="79.9616514645977" />
++      <entry key="H1" value="118.10721117797056" />
++      <entry key="H2" value="146.76051516498282" />
++      <entry key="H4" value="164.48479859350104" />
++      <entry key="D1" value="181.3674100459682" />
++      <entry key="W1" value="184.47555559740735" />
+     </decayedShown>
++  </component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="CurrentFile" />
+   </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 0
+@@ -115,17 +135,22 @@
+     "RunOnceActivity.git.unshallow": "true",
+     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+     "codeWithMe.voiceChat.enabledByDefault": "false",
++    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+     "git-widget-placeholder": "main",
+     "ignore.virus.scanning.warn.message": "true",
++    "junie.onboarding.icon.badge.shown": "true",
+     "kotlin-language-version-configured": "true",
++    "node.js.detected.package.eslint": "true",
+     "node.js.detected.package.jshint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
+     "node.js.selected.package.jshint": "",
+     "node.js.selected.package.tslint": "(autodetect)",
+     "nodejs_package_manager_path": "npm",
+     "project.structure.last.edited": "Modules",
+     "project.structure.proportion": "0.15",
+     "project.structure.side.proportion": "0.2",
+-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
++    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
++    "to.speed.mode.migration.done": "true"
+   }
+ }]]></component>
+   <component name="RunManager" selected="Application.GerajApplication">
+@@ -189,4 +214,8 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="sign in view" />
++    <option name="LAST_COMMIT_MESSAGE" value="sign in view" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: src/main/resources/com/geraj/assignment/landing-page-view.fxml
+===================================================================
+diff --git a/src/main/resources/com/geraj/assignment/landing-page-view.fxml b/src/main/resources/com/geraj/assignment/landing-page-view.fxml
+new file mode 100644
+--- /dev/null	(date 1788788899761)
++++ b/src/main/resources/com/geraj/assignment/landing-page-view.fxml	(date 1788788899761)
+@@ -0,0 +1,35 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.geometry.Insets?>
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.layout.VBox?>
++
++<VBox alignment="CENTER"
++      spacing="20.0"
++      xmlns="http://javafx.com/javafx"
++      xmlns:fx="http://javafx.com/fxml"
++      fx:controller="com.geraj.assignment.controller.LandingPageController">
++
++    <padding>
++        <Insets top="30.0"
++                right="30.0"
++                bottom="30.0"
++                left="30.0"/>
++    </padding>
++
++    <Label text="Welcome to the CAB302 GERAJ Application!"/>
++
++    <Label text="Please sign in or create an account to continue."/>
++
++    <Button fx:id="signInButton"
++            text="Sign In"
++            prefWidth="200.0"
++            onAction="#onSignIn"/>
++
++    <Button fx:id="createAccountButton"
++            text="Create Account"
++            prefWidth="200.0"
++            onAction="#onCreateAccount"/>
++
++</VBox>
+\ No newline at end of file
