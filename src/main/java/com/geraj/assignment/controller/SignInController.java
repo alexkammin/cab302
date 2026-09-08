@@ -68,7 +68,7 @@ public class SignInController {
     private void onBack(ActionEvent actionEvent) {
         SceneSwitcher.switchScene(
                 actionEvent,
-                "landing-page-view.fxml"
+                "landing-view.fxml"
         );
     }
 }
