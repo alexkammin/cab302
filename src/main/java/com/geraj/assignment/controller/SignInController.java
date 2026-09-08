@@ -72,11 +72,11 @@ public class SignInController {
                     "main-view.fxml"
             );
         }
-
-
-        messageLabel.setText(
-                "Sign-in authentication still needs to be connected."
-        );
+        else {
+            messageLabel.setText(
+                    "Incorrect password."
+            );
+        }
     }
 
     @FXML
