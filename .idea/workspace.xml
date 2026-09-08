@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment=".">
+    <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment="commit 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/communityPlant.db" beforeDir="false" afterPath="$PROJECT_DIR$/communityPlant.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/PasswordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/PasswordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/SceneSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/SceneSwitcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/CreateAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/CreateAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/SignInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/dao/SqliteAccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/dao/SqliteAccountDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/create-account-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/create-account-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/AccountSessionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AccountSessionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/AccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AccountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/GardenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GardenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,23 +48,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0000000000000182" />
-      <entry key="S10" value="1.0000001350128445" />
-      <entry key="S30" value="1.005130093376277" />
-      <entry key="S60" value="1.0717240091216187" />
-      <entry key="M2" value="1.3079465569811544" />
-      <entry key="M5" value="4.113614319141403" />
-      <entry key="M10" value="15.193342227691883" />
-      <entry key="M15" value="28.023089268622375" />
-      <entry key="M30" value="57.54940715469985" />
-      <entry key="H1" value="85.98780275138581" />
-      <entry key="H2" value="106.18775350752802" />
-      <entry key="H4" value="118.29658397878801" />
-      <entry key="D1" value="129.5961091102936" />
-      <entry key="W1" value="131.65351941571896" />
+      <entry key="MS100" value="1.0451351813480596" />
+      <entry key="MS500" value="1.6425060523204449" />
+      <entry key="S2" value="2.4248935548379156" />
+      <entry key="S5" value="2.7376588068125" />
+      <entry key="S10" value="2.8626572483968244" />
+      <entry key="S30" value="2.952774449578313" />
+      <entry key="S60" value="2.9795473123350362" />
+      <entry key="M2" value="3.061200812467632" />
+      <entry key="M5" value="4.293208265642717" />
+      <entry key="M10" value="11.532116632428703" />
+      <entry key="M15" value="22.076408018635316" />
+      <entry key="M30" value="50.483424787433584" />
+      <entry key="H1" value="81.1068054300294" />
+      <entry key="H2" value="104.204703920397" />
+      <entry key="H4" value="118.48760890420469" />
+      <entry key="D1" value="132.07808107626835" />
+      <entry key="W1" value="134.5782114931805" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -94,23 +86,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.6138315422991827E-21" />
-      <entry key="MS500" value="6.943391283401519E-5" />
-      <entry key="S2" value="0.09128363168031911" />
-      <entry key="S5" value="0.3838461279260349" />
-      <entry key="S10" value="0.619553279716815" />
-      <entry key="S30" value="0.8573138363465849" />
-      <entry key="S60" value="0.9928103719384773" />
-      <entry key="M2" value="1.2646400847486305" />
-      <entry key="M5" value="4.093500727532343" />
-      <entry key="M10" value="15.181391043545299" />
-      <entry key="M15" value="28.01403619346359" />
-      <entry key="M30" value="57.543815694333205" />
-      <entry key="H1" value="85.98454346772009" />
-      <entry key="H2" value="106.18596689938151" />
-      <entry key="H4" value="118.29564469932669" />
-      <entry key="D1" value="129.59594551176784" />
-      <entry key="W1" value="131.65349586238457" />
+      <entry key="MS100" value="1.0165949090387278" />
+      <entry key="MS500" value="1.6170035476819653" />
+      <entry key="S2" value="2.414402444248157" />
+      <entry key="S5" value="2.7329384154526686" />
+      <entry key="S10" value="2.860198169956079" />
+      <entry key="S30" value="2.9519301115170986" />
+      <entry key="S60" value="2.978876050572141" />
+      <entry key="M2" value="3.0585658137662843" />
+      <entry key="M5" value="4.286776306373488" />
+      <entry key="M10" value="11.525360612978506" />
+      <entry key="M15" value="22.07021623878508" />
+      <entry key="M30" value="50.47879700856446" />
+      <entry key="H1" value="81.10383772954162" />
+      <entry key="H2" value="104.20299758686208" />
+      <entry key="H4" value="118.48669014636997" />
+      <entry key="D1" value="132.0779178348333" />
+      <entry key="W1" value="134.57818791091378" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -138,7 +130,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -236,6 +228,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="commit 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit 1" />
   </component>
 </project>

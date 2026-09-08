@@ -1,10 +1,33 @@
 package com.geraj.assignment.controller;
 
 import com.geraj.assignment.SceneSwitcher;
-import javafx.beans.binding.Bindings;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
 public class MainController {
+
+    @FXML
+    private void onViewGardens(ActionEvent actionEvent) {
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "garden-list-view.fxml"
+        );
+    }
+
+    @FXML
+    private void onCreateGarden(ActionEvent actionEvent) {
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "create-garden-view.fxml"
+        );
+    }
+
+    @FXML
+    private void onLogout(ActionEvent actionEvent) {
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "landing-view.fxml"
+        );
+    }
 }
