@@ -10,12 +10,11 @@ class AccountValidatorTest {
     private static final String LAST_NAME = "Patel";
     private static final String EMAIL = "harresh@example.com";
     private static final String PHONE_NUMBER = "0412345678";
-    private static final String POSTCODE = "4000";
 
     @Test
     void validPersonalInformationShouldReturnNoErrors() {
         AccountValidator.ValidationResult result = validate(
-                FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, POSTCODE
+                FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER
         );
 
         assertTrue(result.isValid());
@@ -25,7 +24,7 @@ class AccountValidatorTest {
     @Test
     void namesWithSurroundingWhitespaceShouldReturnNoErrors() {
         AccountValidator.ValidationResult result = validate(
-                "  Harresh  ", "  Patel  ", EMAIL, PHONE_NUMBER, POSTCODE
+                "  Harresh  ", "  Patel  ", EMAIL, PHONE_NUMBER
         );
 
         assertTrue(result.isValid());
@@ -34,7 +33,7 @@ class AccountValidatorTest {
     @Test
     void firstNameWithOneHundredCharactersShouldReturnNoError() {
         AccountValidator.ValidationResult result = validate(
-                "a".repeat(100), LAST_NAME, EMAIL, PHONE_NUMBER, POSTCODE
+                "a".repeat(100), LAST_NAME, EMAIL, PHONE_NUMBER
         );
 
         assertFalse(result.hasError("firstName"));
@@ -43,7 +42,7 @@ class AccountValidatorTest {
     @Test
     void firstNameWithOneHundredAndOneCharactersShouldReturnError() {
         AccountValidator.ValidationResult result = validate(
-                "a".repeat(101), LAST_NAME, EMAIL, PHONE_NUMBER, POSTCODE
+                "a".repeat(101), LAST_NAME, EMAIL, PHONE_NUMBER
         );
 
         assertTrue(result.hasError("firstName"));
@@ -51,20 +50,20 @@ class AccountValidatorTest {
 
     @Test
     void nullFirstNameShouldReturnError() {
-        assertTrue(validate(null, LAST_NAME, EMAIL, PHONE_NUMBER, POSTCODE)
+        assertTrue(validate(null, LAST_NAME, EMAIL, PHONE_NUMBER)
                 .hasError("firstName"));
     }
 
     @Test
     void blankFirstNameShouldReturnError() {
-        assertTrue(validate("   ", LAST_NAME, EMAIL, PHONE_NUMBER, POSTCODE)
+        assertTrue(validate("   ", LAST_NAME, EMAIL, PHONE_NUMBER)
                 .hasError("firstName"));
     }
 
     @Test
     void lastNameWithOneHundredCharactersShouldReturnNoError() {
         AccountValidator.ValidationResult result = validate(
-                FIRST_NAME, "a".repeat(100), EMAIL, PHONE_NUMBER, POSTCODE
+                FIRST_NAME, "a".repeat(100), EMAIL, PHONE_NUMBER
         );
 
         assertFalse(result.hasError("lastName"));
@@ -73,7 +72,7 @@ class AccountValidatorTest {
     @Test
     void lastNameWithOneHundredAndOneCharactersShouldReturnError() {
         AccountValidator.ValidationResult result = validate(
-                FIRST_NAME, "a".repeat(101), EMAIL, PHONE_NUMBER, POSTCODE
+                FIRST_NAME, "a".repeat(101), EMAIL, PHONE_NUMBER
         );
 
         assertTrue(result.hasError("lastName"));
@@ -81,13 +80,13 @@ class AccountValidatorTest {
 
     @Test
     void nullLastNameShouldReturnError() {
-        assertTrue(validate(FIRST_NAME, null, EMAIL, PHONE_NUMBER, POSTCODE)
+        assertTrue(validate(FIRST_NAME, null, EMAIL, PHONE_NUMBER)
                 .hasError("lastName"));
     }
 
     @Test
     void emptyLastNameShouldReturnError() {
-        assertTrue(validate(FIRST_NAME, "", EMAIL, PHONE_NUMBER, POSTCODE)
+        assertTrue(validate(FIRST_NAME, "", EMAIL, PHONE_NUMBER)
                 .hasError("lastName"));
     }
 
@@ -95,7 +94,7 @@ class AccountValidatorTest {
     void emailWithTwoHundredAndFiftyFourCharactersShouldReturnNoError() {
         String email = "a".repeat(242) + "@example.com";
 
-        assertFalse(validate(FIRST_NAME, LAST_NAME, email, PHONE_NUMBER, POSTCODE)
+        assertFalse(validate(FIRST_NAME, LAST_NAME, email, PHONE_NUMBER)
                 .hasError("email"));
     }
 
@@ -103,116 +102,84 @@ class AccountValidatorTest {
     void emailWithTwoHundredAndFiftyFiveCharactersShouldReturnError() {
         String email = "a".repeat(243) + "@example.com";
 
-        assertTrue(validate(FIRST_NAME, LAST_NAME, email, PHONE_NUMBER, POSTCODE)
+        assertTrue(validate(FIRST_NAME, LAST_NAME, email, PHONE_NUMBER)
                 .hasError("email"));
     }
 
     @Test
     void nullEmailShouldReturnError() {
-        assertTrue(validate(FIRST_NAME, LAST_NAME, null, PHONE_NUMBER, POSTCODE)
+        assertTrue(validate(FIRST_NAME, LAST_NAME, null, PHONE_NUMBER)
                 .hasError("email"));
     }
 
     @Test
     void emailWithoutAtSymbolShouldReturnError() {
         assertTrue(validate(
-                FIRST_NAME, LAST_NAME, "harresh.example.com", PHONE_NUMBER, POSTCODE
+                FIRST_NAME, LAST_NAME, "harresh.example.com", PHONE_NUMBER
         ).hasError("email"));
     }
 
     @Test
     void emailWithoutDomainDotShouldReturnError() {
         assertTrue(validate(
-                FIRST_NAME, LAST_NAME, "harresh@example", PHONE_NUMBER, POSTCODE
+                FIRST_NAME, LAST_NAME, "harresh@example", PHONE_NUMBER
         ).hasError("email"));
     }
 
     @Test
     void emailContainingWhitespaceShouldReturnError() {
         assertTrue(validate(
-                FIRST_NAME, LAST_NAME, "harresh @example.com", PHONE_NUMBER, POSTCODE
+                FIRST_NAME, LAST_NAME, "harresh @example.com", PHONE_NUMBER
         ).hasError("email"));
     }
 
     @Test
     void emptyPhoneNumberShouldReturnNoError() {
-        assertFalse(validate(FIRST_NAME, LAST_NAME, EMAIL, "", POSTCODE)
+        assertFalse(validate(FIRST_NAME, LAST_NAME, EMAIL, "")
                 .hasError("phoneNumber"));
     }
 
     @Test
     void phoneNumberContainingSpacesShouldReturnNoError() {
-        assertFalse(validate(FIRST_NAME, LAST_NAME, EMAIL, "0412 345 678", POSTCODE)
+        assertFalse(validate(FIRST_NAME, LAST_NAME, EMAIL, "0412 345 678")
                 .hasError("phoneNumber"));
     }
 
     @Test
     void phoneNumberWithAustralianCountryCodeShouldReturnNoError() {
-        assertFalse(validate(FIRST_NAME, LAST_NAME, EMAIL, "+61412345678", POSTCODE)
+        assertFalse(validate(FIRST_NAME, LAST_NAME, EMAIL, "+61412345678")
                 .hasError("phoneNumber"));
     }
 
     @Test
     void nullPhoneNumberShouldReturnError() {
-        assertTrue(validate(FIRST_NAME, LAST_NAME, EMAIL, null, POSTCODE)
+        assertTrue(validate(FIRST_NAME, LAST_NAME, EMAIL, null)
                 .hasError("phoneNumber"));
     }
 
     @Test
     void phoneNumberWithIncorrectPrefixShouldReturnError() {
-        assertTrue(validate(FIRST_NAME, LAST_NAME, EMAIL, "1412345678", POSTCODE)
+        assertTrue(validate(FIRST_NAME, LAST_NAME, EMAIL, "1412345678")
                 .hasError("phoneNumber"));
     }
 
     @Test
     void phoneNumberWithTooFewDigitsShouldReturnError() {
-        assertTrue(validate(FIRST_NAME, LAST_NAME, EMAIL, "041234567", POSTCODE)
+        assertTrue(validate(FIRST_NAME, LAST_NAME, EMAIL, "041234567")
                 .hasError("phoneNumber"));
-    }
-
-    @Test
-    void postcodeWithFourDigitsShouldReturnNoError() {
-        assertFalse(validate(FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, "4000")
-                .hasError("postcode"));
-    }
-
-    @Test
-    void nullPostcodeShouldReturnError() {
-        assertTrue(validate(FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, null)
-                .hasError("postcode"));
-    }
-
-    @Test
-    void emptyPostcodeShouldReturnError() {
-        assertTrue(validate(FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, "")
-                .hasError("postcode"));
-    }
-
-    @Test
-    void postcodeWithThreeDigitsShouldReturnError() {
-        assertTrue(validate(FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, "400")
-                .hasError("postcode"));
-    }
-
-    @Test
-    void postcodeContainingLettersShouldReturnError() {
-        assertTrue(validate(FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, "4A00")
-                .hasError("postcode"));
     }
 
     private AccountValidator.ValidationResult validate(
             String firstName,
             String lastName,
             String email,
-            String phoneNumber,
-            String postcode
+            String phoneNumber
     ) {
         return AccountValidator.validatePersonalInformation(
                 firstName,
                 lastName,
                 email,
-                phoneNumber,
-                postcode
+                phoneNumber
         );
     }
 }
