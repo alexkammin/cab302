@@ -9,30 +9,7 @@ public class Account {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private String postcode;
     private String hash;
-
-    /*
-     * Original constructor retained so existing DAO code and tests
-     * that use five arguments will continue to work.
-     */
-    public Account(
-            String name,
-            String email,
-            String firstName,
-            String lastName,
-            String hash
-    ) {
-        this(
-                name,
-                email,
-                firstName,
-                lastName,
-                "",
-                "",
-                hash
-        );
-    }
 
     /*
      * Constructor used by the Create Account form.
@@ -43,7 +20,6 @@ public class Account {
             String firstName,
             String lastName,
             String phoneNumber,
-            String postcode,
             String hash
     ) {
         this.name = Objects.requireNonNull(
@@ -69,11 +45,6 @@ public class Account {
         this.phoneNumber = Objects.requireNonNull(
                 phoneNumber,
                 "Account phone number cannot be null"
-        );
-
-        this.postcode = Objects.requireNonNull(
-                postcode,
-                "Account postcode cannot be null"
         );
 
         this.hash = Objects.requireNonNull(
@@ -134,17 +105,6 @@ public class Account {
         this.phoneNumber = Objects.requireNonNull(
                 phoneNumber,
                 "Account phone number cannot be null"
-        );
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = Objects.requireNonNull(
-                postcode,
-                "Account postcode cannot be null"
         );
     }
 

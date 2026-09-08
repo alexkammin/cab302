@@ -32,9 +32,6 @@ public class CreateAccountController {
     private TextField phoneNumberTextField;
 
     @FXML
-    private TextField postcodeTextField;
-
-    @FXML
     private PasswordField passwordField;
 
     @FXML
@@ -62,7 +59,6 @@ public class CreateAccountController {
                         .or(usernameTextField.textProperty().isEmpty())
                         .or(emailTextField.textProperty().isEmpty())
                         .or(phoneNumberTextField.textProperty().isEmpty())
-                        .or(postcodeTextField.textProperty().isEmpty())
                         .or(passwordField.textProperty().isEmpty())
                         .or(confirmPasswordField.textProperty().isEmpty());
 
@@ -86,9 +82,6 @@ public class CreateAccountController {
 
         String phoneNumber =
                 phoneNumberTextField.getText().trim();
-
-        String postcode =
-                postcodeTextField.getText().trim();
 
         String password =
                 passwordField.getText();
@@ -115,13 +108,6 @@ public class CreateAccountController {
         if (!isValidPhoneNumber(phoneNumber)) {
             messageLabel.setText(
                     "Please enter a valid 10-digit Australian phone number."
-            );
-            return;
-        }
-
-        if (!isValidPostcode(postcode)) {
-            messageLabel.setText(
-                    "Please enter a valid 4-digit Australian postcode."
             );
             return;
         }
@@ -155,7 +141,6 @@ public class CreateAccountController {
                 firstName,
                 surname,
                 phoneNumber,
-                postcode,
                 passwordHash
         );
 
@@ -199,9 +184,5 @@ public class CreateAccountController {
         return phoneNumberWithoutSpaces.matches(
                 "0\\d{9}"
         );
-    }
-
-    private boolean isValidPostcode(String postcode) {
-        return postcode.matches("\\d{4}");
     }
 }
