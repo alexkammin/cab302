@@ -1,7 +1,11 @@
 package com.geraj.assignment.controller;
 
+import com.geraj.assignment.PasswordService;
 import com.geraj.assignment.SceneSwitcher;
 
+import com.geraj.assignment.dao.IAccountDAO;
+import com.geraj.assignment.dao.SqliteAccountDAO;
+import com.geraj.assignment.model.Account;
 import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +28,9 @@ public class SignInController {
     @FXML
     private Label messageLabel;
 
+    private final IAccountDAO accountDAO =
+            new SqliteAccountDAO();
+
     @FXML
     private void initialize() {
 
@@ -38,30 +45,38 @@ public class SignInController {
     private void onSignIn(ActionEvent actionEvent) {
 
         String username = usernameTextField.getText().trim();
-        String password = passwordField.getText();
+        char[] password = passwordField.getText().toCharArray();
 
         messageLabel.setText("");
 
-        if (username.isEmpty() || password.isEmpty()) {
+        if (username.isEmpty() || password.length == 0) {
             messageLabel.setText(
                     "Please enter your username and password."
             );
             return;
         }
 
-        /*
-         * Add database authentication here.
-         * Once authentication succeeds, switch to the main page:
-         *
-         * SceneSwitcher.switchScene(
-         *         actionEvent,
-         *         "main-view.fxml"
-         * );
-         */
+        Account account = accountDAO.getAccountByName(username);
 
-        messageLabel.setText(
-                "Sign-in authentication still needs to be connected."
-        );
+        PasswordService passwordService =
+                PasswordService.getInstance();
+
+        if (
+                passwordService.verifyPassword(
+                        account.getHash(),
+                        password
+                )
+        ) {
+            SceneSwitcher.switchScene(
+                    actionEvent,
+                    "main-view.fxml"
+            );
+        }
+        else {
+            messageLabel.setText(
+                    "Incorrect password."
+            );
+        }
     }
 
     @FXML
