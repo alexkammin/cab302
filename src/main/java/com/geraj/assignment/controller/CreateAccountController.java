@@ -114,13 +114,12 @@ public class CreateAccountController {
             return;
         }
 
-        // NEED TO FIX LATER
-//        if (password.length() < 8) {
-//            messageLabel.setText(
-//                    "The password must contain at least 8 characters."
-//            );
-//            return;
-//        }
+        if (password.length < 8) {
+            messageLabel.setText(
+                    "The password must contain at least 8 characters."
+            );
+            return;
+        }
 
         PasswordService passwordService =
                 PasswordService.getInstance();
