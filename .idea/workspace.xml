@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/SceneSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/SceneSwitcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +129,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.All in Assignment">
+  <component name="RunManager" selected="Application.GerajApplication">
     <configuration name="GerajApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.geraj.assignment.GerajApplication" />
       <module name="Assignment" />
@@ -171,9 +171,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GerajApplication" />
         <item itemvalue="JUnit.All in Assignment" />
         <item itemvalue="JUnit.AccountTest" />
-        <item itemvalue="Application.GerajApplication" />
         <item itemvalue="JUnit.GardenTest" />
       </list>
     </recent_temporary>
