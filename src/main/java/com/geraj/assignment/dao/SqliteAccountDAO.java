@@ -23,6 +23,7 @@ public class SqliteAccountDAO implements IAccountDAO {
                 email TEXT NOT NULL UNIQUE,
                 firstName TEXT NOT NULL,
                 lastName TEXT NOT NULL,
+                phoneNumber TEXT NOT NULL,
                 hash TEXT NOT NULL
             );
             """;
@@ -37,8 +38,8 @@ public class SqliteAccountDAO implements IAccountDAO {
     @Override
     public void createAccount(Account account) {
         String query = """
-            INSERT INTO accounts (name, email, firstName, lastName, hash)
-            VALUES (?, ?, ?, ?, ?)
+            INSERT INTO accounts (name, email, firstName, lastName, phoneNumber, hash)
+            VALUES (?, ?, ?, ?, ?, ?)
             """;
 
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -46,7 +47,8 @@ public class SqliteAccountDAO implements IAccountDAO {
             statement.setString(2, account.getEmail());
             statement.setString(3, account.getFirstName());
             statement.setString(4, account.getLastName());
-            statement.setString(5, account.getHash());
+            statement.setString(5, account.getPhoneNumber());
+            statement.setString(6, account.getHash());
             statement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -56,7 +58,7 @@ public class SqliteAccountDAO implements IAccountDAO {
     @Override
     public Account getAccountByName(String searchName) {
         String query = """
-            SELECT name, email, firstName, lastName, hash
+            SELECT name, email, firstName, lastName, phoneNumber, hash
             FROM accounts
             WHERE name = ?
             """;
@@ -70,9 +72,10 @@ public class SqliteAccountDAO implements IAccountDAO {
                     String email = resultSet.getString("email");
                     String firstName = resultSet.getString("firstName");
                     String lastName = resultSet.getString("lastName");
+                    String phoneNumber = resultSet.getString("phoneNumber");
                     String hash = resultSet.getString("hash");
 
-                    return new Account(name, email, firstName, lastName, hash);
+                    return new Account(name, email, firstName, lastName, phoneNumber, hash);
                 }
             }
         } catch (Exception e) {

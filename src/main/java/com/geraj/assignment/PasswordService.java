@@ -40,4 +40,8 @@ public class PasswordService {
             argon2.wipeArray(password);
         }
     }
+
+    public void wipePassword(char[] password) {
+        argon2.wipeArray(password);
+    }
 }

@@ -73,32 +73,23 @@
                GridPane.columnIndex="1"
                GridPane.rowIndex="4"/>
 
-    <Label text="Enter Postcode:"
-           GridPane.columnIndex="0"
-           GridPane.rowIndex="5"/>
-
-    <TextField fx:id="postcodeTextField"
-               promptText="Postcode"
-               GridPane.columnIndex="1"
-               GridPane.rowIndex="5"/>
-
     <Label text="Enter Password:"
            GridPane.columnIndex="0"
-           GridPane.rowIndex="6"/>
+           GridPane.rowIndex="5"/>
 
     <PasswordField fx:id="passwordField"
                    promptText="Password"
                    GridPane.columnIndex="1"
-                   GridPane.rowIndex="6"/>
+                   GridPane.rowIndex="5"/>
 
     <Label text="Confirm Password:"
            GridPane.columnIndex="0"
-           GridPane.rowIndex="7"/>
+           GridPane.rowIndex="6"/>
 
     <PasswordField fx:id="confirmPasswordField"
                    promptText="Confirm password"
                    GridPane.columnIndex="1"
-                   GridPane.rowIndex="7"/>
+                   GridPane.rowIndex="6"/>
 
   </GridPane>
 

@@ -14,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.util.Arrays;
+
 public class CreateAccountController {
 
     @FXML
@@ -30,9 +32,6 @@ public class CreateAccountController {
 
     @FXML
     private TextField phoneNumberTextField;
-
-    @FXML
-    private TextField postcodeTextField;
 
     @FXML
     private PasswordField passwordField;
@@ -62,7 +61,6 @@ public class CreateAccountController {
                         .or(usernameTextField.textProperty().isEmpty())
                         .or(emailTextField.textProperty().isEmpty())
                         .or(phoneNumberTextField.textProperty().isEmpty())
-                        .or(postcodeTextField.textProperty().isEmpty())
                         .or(passwordField.textProperty().isEmpty())
                         .or(confirmPasswordField.textProperty().isEmpty());
 
@@ -87,18 +85,15 @@ public class CreateAccountController {
         String phoneNumber =
                 phoneNumberTextField.getText().trim();
 
-        String postcode =
-                postcodeTextField.getText().trim();
+        char[] password =
+                passwordField.getText().toCharArray();
 
-        String password =
-                passwordField.getText();
-
-        String confirmedPassword =
-                confirmPasswordField.getText();
+        char[] confirmedPassword =
+                confirmPasswordField.getText().toCharArray();
 
         messageLabel.setText("");
 
-        if (!password.equals(confirmedPassword)) {
+        if (!Arrays.equals(password, confirmedPassword)) {
             messageLabel.setText(
                     "The passwords do not match."
             );
@@ -119,14 +114,7 @@ public class CreateAccountController {
             return;
         }
 
-        if (!isValidPostcode(postcode)) {
-            messageLabel.setText(
-                    "Please enter a valid 4-digit Australian postcode."
-            );
-            return;
-        }
-
-        if (password.length() < 8) {
+        if (password.length < 8) {
             messageLabel.setText(
                     "The password must contain at least 8 characters."
             );
@@ -136,13 +124,11 @@ public class CreateAccountController {
         PasswordService passwordService =
                 PasswordService.getInstance();
 
-        char[] passwordCharacters =
-                password.toCharArray();
-
         String passwordHash =
                 passwordService.hashPassword(
-                        passwordCharacters
+                        password
                 );
+        passwordService.wipePassword(confirmedPassword);
 
         /*
          * Account constructor order:
@@ -155,7 +141,6 @@ public class CreateAccountController {
                 firstName,
                 surname,
                 phoneNumber,
-                postcode,
                 passwordHash
         );
 
@@ -199,9 +184,5 @@ public class CreateAccountController {
         return phoneNumberWithoutSpaces.matches(
                 "0\\d{9}"
         );
-    }
-
-    private boolean isValidPostcode(String postcode) {
-        return postcode.matches("\\d{4}");
     }
 }
