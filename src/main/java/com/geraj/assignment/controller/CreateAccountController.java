@@ -14,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.util.Arrays;
+
 public class CreateAccountController {
 
     @FXML
@@ -83,15 +85,15 @@ public class CreateAccountController {
         String phoneNumber =
                 phoneNumberTextField.getText().trim();
 
-        String password =
-                passwordField.getText();
+        char[] password =
+                passwordField.getText().toCharArray();
 
-        String confirmedPassword =
-                confirmPasswordField.getText();
+        char[] confirmedPassword =
+                confirmPasswordField.getText().toCharArray();
 
         messageLabel.setText("");
 
-        if (!password.equals(confirmedPassword)) {
+        if (!Arrays.equals(password, confirmedPassword)) {
             messageLabel.setText(
                     "The passwords do not match."
             );
@@ -112,23 +114,22 @@ public class CreateAccountController {
             return;
         }
 
-        if (password.length() < 8) {
-            messageLabel.setText(
-                    "The password must contain at least 8 characters."
-            );
-            return;
-        }
+        // NEED TO FIX LATER
+//        if (password.length() < 8) {
+//            messageLabel.setText(
+//                    "The password must contain at least 8 characters."
+//            );
+//            return;
+//        }
 
         PasswordService passwordService =
                 PasswordService.getInstance();
 
-        char[] passwordCharacters =
-                password.toCharArray();
-
         String passwordHash =
                 passwordService.hashPassword(
-                        passwordCharacters
+                        password
                 );
+        passwordService.wipePassword(confirmedPassword);
 
         /*
          * Account constructor order:
