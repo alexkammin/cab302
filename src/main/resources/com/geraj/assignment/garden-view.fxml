@@ -11,25 +11,7 @@
     </top>
 
     <center>
-        <VBox>
-            <Label fx:id="mainLabel" text="Garden Page"/>
-            <HBox>
-                <Button fx:id="searchButton"
-                        text="Search for Garden"
-                        onAction="#onSearchButton"
-                />
-                <Button fx:id="createButton"
-                        text="Create a Garden"
-                        onAction="#onCreateButton"
-                />
-
-                <!--    this should be to go to a garden the user has already joined. i dont know what to call it-->
-                <Button fx:id="toGardenButton"
-                        text="Go to your garden"
-                        onAction="#onToGardenButton"
-                />
-            </HBox>
-        </VBox>
+        <Label text="empty for the moment"/>
     </center>
 
 </BorderPane>

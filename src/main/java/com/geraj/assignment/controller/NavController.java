@@ -19,7 +19,7 @@ public class NavController {
     private void goToSchedule(MouseEvent actionEvent) {
         SceneSwitcher.switchScene(
                 actionEvent,
-                "schedule.fxml"
+                "schedule-view.fxml"
         );
     }
 
