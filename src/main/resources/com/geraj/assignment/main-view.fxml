@@ -32,6 +32,11 @@
             prefWidth="220.0"
             onAction="#onCreateGarden"/>
 
+    <Button fx:id="viewProfileButton"
+            text="Account Profile"
+            prefWidth="220.0"
+            onAction="#onViewProfile"/>
+
     <Button fx:id="logoutButton"
             text="Log Out"
             prefWidth="220.0"
