@@ -19,7 +19,7 @@ public class GardenContoller {
     }
 
     @FXML
-    private void onSelectButton(ActionEvent actionEvent) {
+    private void onToGardenButton(ActionEvent actionEvent) {
         SceneSwitcher.switchScene(actionEvent, "main-view.fxml");
     }
 }
