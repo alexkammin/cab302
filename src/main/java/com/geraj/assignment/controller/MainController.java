@@ -24,6 +24,14 @@ public class MainController {
     }
 
     @FXML
+    private void onViewProfile(ActionEvent actionEvent) {
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "account-profile-view.fxml"
+        );
+    }
+
+    @FXML
     private void onLogout(ActionEvent actionEvent) {
         SceneSwitcher.switchScene(
                 actionEvent,
