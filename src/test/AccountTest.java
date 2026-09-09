@@ -76,13 +76,13 @@ public class AccountTest {
 
     @Test
     public void testGetPhoneNumber() {
-        assertEquals("hash_string", account.getHash());
+        assertEquals("0123456789", account.getPhoneNumber());
     }
 
     @Test
     public void testSetPhoneNumber() {
-        account.setHash("new_hash_string");
-        assertEquals("new_hash_string", account.getHash());
+        account.setPhoneNumber("0123456790");
+        assertEquals("0123456790", account.getPhoneNumber());
     }
 
     @Test

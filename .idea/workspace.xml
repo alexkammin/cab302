@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment=".">
+    <list default="true" id="eb8f7bd3-65b8-43ff-a356-b732a5f7ea32" name="Changes" comment="commit 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/communityPlant.db" beforeDir="false" afterPath="$PROJECT_DIR$/communityPlant.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/geraj/assignment/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/geraj/assignment/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "ethanwilliams1000-maker"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/alexkammin/cab302.git",
+    "accountId": "02436a40-b352-443b-9e2e-ed38f7842457"
+  }
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -35,23 +48,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0000000000000182" />
-      <entry key="S10" value="1.0000001350128445" />
-      <entry key="S30" value="1.005130093376277" />
-      <entry key="S60" value="1.0717240091216187" />
-      <entry key="M2" value="1.3079465569811544" />
-      <entry key="M5" value="4.113614319141403" />
-      <entry key="M10" value="15.193342227691883" />
-      <entry key="M15" value="28.023089268622375" />
-      <entry key="M30" value="57.54940715469985" />
-      <entry key="H1" value="85.98780275138581" />
-      <entry key="H2" value="106.18775350752802" />
-      <entry key="H4" value="118.29658397878801" />
-      <entry key="D1" value="129.5961091102936" />
-      <entry key="W1" value="131.65351941571896" />
+      <entry key="MS100" value="1.0451351813480596" />
+      <entry key="MS500" value="1.6425060523204449" />
+      <entry key="S2" value="2.4248935548379156" />
+      <entry key="S5" value="2.7376588068125" />
+      <entry key="S10" value="2.8626572483968244" />
+      <entry key="S30" value="2.952774449578313" />
+      <entry key="S60" value="2.9795473123350362" />
+      <entry key="M2" value="3.061200812467632" />
+      <entry key="M5" value="4.293208265642717" />
+      <entry key="M10" value="11.532116632428703" />
+      <entry key="M15" value="22.076408018635316" />
+      <entry key="M30" value="50.483424787433584" />
+      <entry key="H1" value="81.1068054300294" />
+      <entry key="H2" value="104.204703920397" />
+      <entry key="H4" value="118.48760890420469" />
+      <entry key="D1" value="132.07808107626835" />
+      <entry key="W1" value="134.5782114931805" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -73,23 +86,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.6138315422991827E-21" />
-      <entry key="MS500" value="6.943391283401519E-5" />
-      <entry key="S2" value="0.09128363168031911" />
-      <entry key="S5" value="0.3838461279260349" />
-      <entry key="S10" value="0.619553279716815" />
-      <entry key="S30" value="0.8573138363465849" />
-      <entry key="S60" value="0.9928103719384773" />
-      <entry key="M2" value="1.2646400847486305" />
-      <entry key="M5" value="4.093500727532343" />
-      <entry key="M10" value="15.181391043545299" />
-      <entry key="M15" value="28.01403619346359" />
-      <entry key="M30" value="57.543815694333205" />
-      <entry key="H1" value="85.98454346772009" />
-      <entry key="H2" value="106.18596689938151" />
-      <entry key="H4" value="118.29564469932669" />
-      <entry key="D1" value="129.59594551176784" />
-      <entry key="W1" value="131.65349586238457" />
+      <entry key="MS100" value="1.0165949090387278" />
+      <entry key="MS500" value="1.6170035476819653" />
+      <entry key="S2" value="2.414402444248157" />
+      <entry key="S5" value="2.7329384154526686" />
+      <entry key="S10" value="2.860198169956079" />
+      <entry key="S30" value="2.9519301115170986" />
+      <entry key="S60" value="2.978876050572141" />
+      <entry key="M2" value="3.0585658137662843" />
+      <entry key="M5" value="4.286776306373488" />
+      <entry key="M10" value="11.525360612978506" />
+      <entry key="M15" value="22.07021623878508" />
+      <entry key="M30" value="50.47879700856446" />
+      <entry key="H1" value="81.10383772954162" />
+      <entry key="H2" value="104.20299758686208" />
+      <entry key="H4" value="118.48669014636997" />
+      <entry key="D1" value="132.0779178348333" />
+      <entry key="W1" value="134.57818791091378" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -103,33 +116,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.GerajApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AccountTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in Assignment.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GardenTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PasswordServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserTest.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.GerajApplication.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "JUnit.AccountTest.executor": "Run",
+    "JUnit.All in Assignment.executor": "Run",
+    "JUnit.GardenTest.executor": "Run",
+    "JUnit.PasswordServiceTest.executor": "Run",
+    "JUnit.UserTest.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.GerajApplication">
     <configuration name="GerajApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.geraj.assignment.GerajApplication" />
@@ -213,6 +228,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="commit 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit 1" />
   </component>
 </project>
