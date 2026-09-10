@@ -24,12 +24,10 @@ public class SceneSwitcher {
 
     /**
      * Replaces the current scene's root node with the root loaded from the specified FXML file.
-     *
-     * @param <T>      The type of the controller associated with the target FXML resource.
-     * @param event    The {@link Event} triggered by a UI component, used to resolve the current active window.
+     * @param <T> The type of the controller associated with the target FXML resource.
+     * @param event The {@link Event} triggered by a UI component, used to resolve the current active window.
      * @param fxmlFile The name of the target FXML view.
-     * @return The controller instance for the new page,
-     *         or {@code null} if an {@link IOException} occurs during loading.
+     * @return The controller instance for the new page, or {@code null} if an {@link IOException} occurs during loading.
      */
     public static <T> T switchScene(Event event, String fxmlFile) {
         currentView = fxmlFile;

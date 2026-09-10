@@ -31,8 +31,8 @@ public class AccountSession {
     }
 
     /**
-     * Retrieves the current active session instance.
-     * @return the active {@link AccountSession}, or {@code null} if no user is logged in
+     * Retrieves the current active {@link AccountSession} instance.
+     * @return the active {@link AccountSession} instance, or {@code null} if no user is logged in
      */
     public static AccountSession getInstance() {
         return instance;
