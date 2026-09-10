@@ -120,7 +120,7 @@ public class SqliteAccountDAO implements IAccountDAO {
      * @return the matching account, or an empty optional when none exists
      */
     @Override
-    public Optional<Account> findById(int accountId) {
+    public Optional<Account> getAccountById(int accountId) {
         String query = """
             SELECT name, email, firstName, lastName, phoneNumber, hash
             FROM accounts
@@ -148,7 +148,7 @@ public class SqliteAccountDAO implements IAccountDAO {
      * @return the matching account, or an empty optional when none exists
      */
     @Override
-    public Optional<Account> findByEmail(String email) {
+    public Optional<Account> getAccountByEmail(String email) {
         String query = """
             SELECT name, email, firstName, lastName, phoneNumber, hash
             FROM accounts

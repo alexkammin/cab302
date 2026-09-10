@@ -31,13 +31,13 @@ class SqliteAccountDAOTest {
     }
 
     @Test
-    void findByIdShouldReturnTheStoredAccount() {
+    void getAccountByIdShouldReturnTheStoredAccount() {
         accountDAO.createAccount(createAccount(
                 "harresh", "harresh@example.com", "Harresh", "Patel",
                 "0412345678", "stored-hash"
         ));
 
-        Optional<Account> result = accountDAO.findById(1);
+        Optional<Account> result = accountDAO.getAccountById(1);
 
         assertTrue(result.isPresent());
         Account account = result.orElseThrow();
@@ -52,8 +52,8 @@ class SqliteAccountDAOTest {
     }
 
     @Test
-    void findByEmailWithUnknownEmailShouldReturnEmpty() {
-        Optional<Account> result = accountDAO.findByEmail("missing@example.com");
+    void getAccountByEmailWithUnknownEmailShouldReturnEmpty() {
+        Optional<Account> result = accountDAO.getAccountByEmail("missing@example.com");
 
         assertTrue(result.isEmpty());
     }
@@ -72,7 +72,7 @@ class SqliteAccountDAOTest {
 
         assertTrue(accountDAO.updatePersonalInformation(account));
 
-        Account savedAccount = accountDAO.findByEmail("harresh@example.com")
+        Account savedAccount = accountDAO.getAccountByEmail("harresh@example.com")
                 .orElseThrow();
         assertAll(
                 () -> assertEquals("Harresh", savedAccount.getFirstName()),
@@ -101,7 +101,7 @@ class SqliteAccountDAOTest {
 
         assertFalse(accountDAO.updatePersonalInformation(secondAccount));
 
-        Account savedAccount = accountDAO.findByEmail("alex@example.com")
+        Account savedAccount = accountDAO.getAccountByEmail("alex@example.com")
                 .orElseThrow();
         assertAll(
                 () -> assertEquals("Alex", savedAccount.getFirstName()),

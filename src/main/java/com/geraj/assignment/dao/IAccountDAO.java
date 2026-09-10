@@ -29,7 +29,7 @@ public interface IAccountDAO {
      * @param accountId the account identifier
      * @return the matching account, or an empty optional when none exists
      */
-    Optional<Account> findById(int accountId);
+    Optional<Account> getAccountById(int accountId);
 
     /**
      * Finds an account by its email address.
@@ -37,7 +37,7 @@ public interface IAccountDAO {
      * @param email the email address to find
      * @return the matching account, or an empty optional when none exists
      */
-    Optional<Account> findByEmail(String email);
+    Optional<Account> getAccountByEmail(String email);
 
     /**
      * Updates the editable personal information for an existing account.
