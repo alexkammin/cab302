@@ -20,6 +20,7 @@
     />
 
     <HBox spacing="10" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+        <!-- Logged in -->
         <Label fx:id="gardenLabel"
                text="Garden"
                onMouseClicked="#goToGarden"
@@ -35,6 +36,16 @@
         <Label fx:id="mainLabel"
                text="Main"
                onMouseClicked="#goToMain"
+               styleClass="nav-link"/>
+
+        <!-- Logged out -->
+        <Label fx:id="signInLabel"
+               text="Sign In"
+               onMouseClicked="#goToSignIn"
+               styleClass="nav-link"/>
+        <Label fx:id="createAccountLabel"
+               text="Create Account"
+               onMouseClicked="#goToCreateAccount"
                styleClass="nav-link"/>
     </HBox>
 
