@@ -1,5 +1,6 @@
 package com.geraj.assignment.controller;
 
+import com.geraj.assignment.AccountSession;
 import com.geraj.assignment.SceneSwitcher;
 
 import javafx.event.ActionEvent;
@@ -33,6 +34,7 @@ public class MainController {
 
     @FXML
     private void onLogout(ActionEvent actionEvent) {
+        AccountSession.logout();
         SceneSwitcher.switchScene(
                 actionEvent,
                 "landing-view.fxml"

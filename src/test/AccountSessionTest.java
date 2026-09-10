@@ -9,7 +9,7 @@ public class AccountSessionTest {
 
     @BeforeEach
     public void setUp() {
-        AccountSession.clear();
+        AccountSession.logout();
         account = new Account("Name", "email@example.com", "First", "Last", "0123456789","hash_string");
     }
 
@@ -50,7 +50,7 @@ public class AccountSessionTest {
         AccountSession.startSession(account);
         assertNotNull(AccountSession.getInstance());
 
-        AccountSession.clear();
+        AccountSession.logout();
 
         assertNull(AccountSession.getInstance());
     }
