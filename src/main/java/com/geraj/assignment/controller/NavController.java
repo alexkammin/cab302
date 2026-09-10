@@ -27,7 +27,7 @@ public class NavController {
     private void goToAccount(MouseEvent actionEvent) {
         SceneSwitcher.switchScene(
                 actionEvent,
-                "account-view.fxml"
+                "account-profile-view.fxml"
         );
     }
 }
