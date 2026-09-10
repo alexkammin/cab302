@@ -30,4 +30,12 @@ public class NavController {
                 "account-profile-view.fxml"
         );
     }
+
+    @FXML
+    private void goToMain(MouseEvent actionEvent) {
+        SceneSwitcher.switchScene(
+                actionEvent,
+                "main-view.fxml"
+        );
+    }
 }

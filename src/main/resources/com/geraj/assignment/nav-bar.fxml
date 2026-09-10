@@ -34,6 +34,11 @@
                style="-fx-font-size: 13px;
                       -fx-text-fill: #111111;
                       -fx-cursor: hand;"/>
+        <Label text="Main"
+               onMouseClicked="#goToMain"
+               style="-fx-font-size: 13px;
+                      -fx-text-fill: #111111;
+                      -fx-cursor: hand;"/>
     </HBox>
 
 </HBox>
