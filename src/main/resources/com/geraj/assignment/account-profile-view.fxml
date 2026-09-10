@@ -21,20 +21,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.geraj.assignment.controller.ProfileController">
     <top>
-        <HBox alignment="CENTER_LEFT"
-              spacing="12.0"
-              style="-fx-background-color: white; -fx-border-color: #dddddd; -fx-border-width: 0 0 1 0;">
-            <padding>
-                <Insets bottom="14.0" left="24.0" right="24.0" top="14.0"/>
-            </padding>
-            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;"
-                   text="CommunityPlant"/>
-            <Region HBox.hgrow="ALWAYS"/>
-            <Button fx:id="backButton"
-                    mnemonicParsing="false"
-                    onAction="#onBack"
-                    text="Back to main"/>
-        </HBox>
+        <fx:include source="nav-bar.fxml"/>
     </top>
 
     <left>
