@@ -6,6 +6,7 @@
 <HBox xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.geraj.assignment.controller.NavController"
+            stylesheets="@style.css"
             prefHeight="60"
             alignment="CENTER_LEFT"
             spacing="10"
@@ -19,26 +20,22 @@
     />
 
     <HBox spacing="10" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-        <Label text="Garden"
+        <Label fx:id="gardenLabel"
+               text="Garden"
                onMouseClicked="#goToGarden"
-               style="-fx-font-size: 13px;
-                      -fx-text-fill: #111111;
-                      -fx-cursor: hand;"/>
-        <Label text="Schedule"
+               styleClass="nav-link"/>
+        <Label fx:id="scheduleLabel"
+               text="Schedule"
                onMouseClicked="#goToSchedule"
-               style="-fx-font-size: 13px;
-                      -fx-text-fill: #111111;
-                      -fx-cursor: hand;"/>
-        <Label text="Account"
+               styleClass="nav-link"/>
+        <Label fx:id="accountLabel"
+               text="Account"
                onMouseClicked="#goToAccount"
-               style="-fx-font-size: 13px;
-                      -fx-text-fill: #111111;
-                      -fx-cursor: hand;"/>
-        <Label text="Main"
+               styleClass="nav-link"/>
+        <Label fx:id="mainLabel"
+               text="Main"
                onMouseClicked="#goToMain"
-               style="-fx-font-size: 13px;
-                      -fx-text-fill: #111111;
-                      -fx-cursor: hand;"/>
+               styleClass="nav-link"/>
     </HBox>
 
 </HBox>
