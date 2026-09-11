@@ -1,7 +1,7 @@
 package com.geraj.assignment.model;
 
+import java.util.ArrayList;
 import java.util.Objects;
-import java.util.List;
 
 public class Garden {
     private String name;
@@ -10,47 +10,7 @@ public class Garden {
     private Double precipitation;
     private Integer atmosphericHumidity;
     private Account owner;
-    // Overall garden dimensions; null for records created before US17.
-    private Integer id;
-    private Double width;
-    private Double length;
-    private int planterBoxCount;
-    private List<Integer> planterBoxIds = List.of();
-
-    /** Creates a validated US17 garden. Each empty box receives a stable database ID on save. */
-    public static Garden create(String name, String location, double width, double length,
-                                int planterBoxCount, Account owner) {
-        if (!GardenValidator.validate(name, location, Double.toString(width),
-                Double.toString(length), Integer.toString(planterBoxCount)).isEmpty()) {
-            throw new IllegalArgumentException("Invalid garden details");
-        }
-        if (owner == null) throw new IllegalArgumentException("Sign in before creating a garden");
-        Garden garden = new Garden(name.trim(), location.trim(), null, null, null, owner);
-        garden.width = width;
-        garden.length = length;
-        garden.planterBoxCount = planterBoxCount;
-        return garden;
-    }
-
-    public Integer getId() { return id; }
-    public Double getWidth() { return width; }
-    public Double getLength() { return length; }
-    public int getPlanterBoxCount() { return planterBoxCount; }
-    public List<Integer> getPlanterBoxIds() { return planterBoxIds; }
-
-    /** Restores database identity and layout, including legacy gardens without dimensions. */
-    public void restoreLayout(int id, Double width, Double length, List<Integer> boxIds) {
-        this.id = id;
-        this.width = width;
-        this.length = length;
-        this.planterBoxIds = List.copyOf(boxIds);
-        this.planterBoxCount = boxIds.size();
-    }
-
-    /** The existing owner relationship gives the creator admin access to this garden. */
-    public boolean isAdmin(Account account) {
-        return account != null && owner != null && owner.getName().equals(account.getName());
-    }
+//    private ArrayList<GardenPlot> gardenPlots;
 
     public Garden(String name,
                   String location,
