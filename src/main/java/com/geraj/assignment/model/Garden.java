@@ -25,6 +25,7 @@ public class Garden {
         this.precipitation = precipitation;
         this.atmosphericHumidity = atmosphericHumidity;
         this.owner = owner;
+        this.gardenPlots = new ArrayList<>();
     }
 
     public String getName() {
