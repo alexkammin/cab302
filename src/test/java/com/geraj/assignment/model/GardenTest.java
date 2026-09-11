@@ -1,3 +1,5 @@
+package com.geraj.assignment.model;
+
 import com.geraj.assignment.model.Account;
 import com.geraj.assignment.model.Garden;
 import java.util.ArrayList;

@@ -1,6 +1,7 @@
 package com.geraj.assignment.model;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -92,5 +93,93 @@ class AccountTest {
                 PHONE_NUMBER,
                 HASH
         );
+    }
+
+    private Account account;
+
+    @BeforeEach
+    public void setUp() {
+        account = new Account("Name", "email@example.com", "First", "Last", "0123456789",  "hash_string");
+    }
+
+    @Test
+    public void testGetName() {
+        assertEquals("Name", account.getName());
+    }
+
+    @Test
+    public void testSetName() {
+        account.setName("NewName");
+        assertEquals("NewName", account.getName());
+    }
+
+    @Test
+    public void testConstructorWithNullName() {
+        assertThrows(NullPointerException.class, () -> new Account(null, "email@example.com", "First", "Last","0123456789","hash_string"));
+    }
+
+    @Test
+    public void testGetEmail() {
+        assertEquals("email@example.com", account.getEmail());
+    }
+
+    @Test
+    public void testSetEmail() {
+        account.setEmail("newEmail@example.com");
+        assertEquals("newEmail@example.com", account.getEmail());
+    }
+
+    @Test
+    public void testConstructorWithNullEmail() {
+        assertThrows(NullPointerException.class, () -> new Account("Name", null, "First", "Last","0123456789", "hash_string"));
+    }
+
+    @Test
+    public void testGetFirstName() {
+        assertEquals("First", account.getFirstName());
+    }
+
+    @Test
+    public void testSetFirstName() {
+        account.setFirstName("newFirst");
+        assertEquals("newFirst", account.getFirstName());
+    }
+
+    @Test
+    public void testGetLastName() {
+        assertEquals("Last", account.getLastName());
+    }
+
+    @Test
+    public void testSetLastName() {
+        account.setLastName("newLast");
+        assertEquals("newLast", account.getLastName());
+    }
+
+    @Test
+    public void testGetPhoneNumber() {
+        assertEquals("0123456789", account.getPhoneNumber());
+    }
+
+    @Test
+    public void testSetPhoneNumber() {
+        account.setPhoneNumber("0123456790");
+        assertEquals("0123456790", account.getPhoneNumber());
+    }
+
+    @Test
+    public void testGetHash() {
+        assertEquals("hash_string", account.getHash());
+    }
+
+    @Test
+    public void testSetHash() {
+        account.setHash("new_hash_string");
+        assertEquals("new_hash_string", account.getHash());
+    }
+
+    @Test
+    public void testConstructorWithNullHash() {
+        assertThrows(NullPointerException.class, () -> new Account("Name", "email@example.com", "First", "Last","0123456789", null));
     }
 }

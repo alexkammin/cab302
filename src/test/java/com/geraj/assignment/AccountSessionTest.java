@@ -1,3 +1,5 @@
+package com.geraj.assignment;
+
 import com.geraj.assignment.AccountSession;
 import com.geraj.assignment.model.Account;
 import org.junit.jupiter.api.*;
