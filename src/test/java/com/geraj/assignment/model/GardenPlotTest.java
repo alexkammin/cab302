@@ -1,5 +1,5 @@
-package com.geraj.assignment.model;
-
+//package com.geraj.assignment.model;
+//
 //import com.geraj.assignment.model.Account;
 //import com.geraj.assignment.model.GardenPlot;
 //import java.util.ArrayList;

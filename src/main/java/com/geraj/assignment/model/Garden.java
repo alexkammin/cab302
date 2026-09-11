@@ -10,7 +10,8 @@ public class Garden {
     private Double precipitation;
     private Integer atmosphericHumidity;
     private Account owner;
-//    private ArrayList<GardenPlot> gardenPlots;
+    private ArrayList<GardenPlot> gardenPlots;
+
 
     public Garden(String name,
                   String location,
@@ -76,5 +77,17 @@ public class Garden {
 
     public String toString() {
         return getName() + " - " + getLocation();
+    }
+
+    public ArrayList<GardenPlot> getGardenPlots() {
+        return gardenPlots;
+    }
+
+    public void addGardenPlot(GardenPlot gardenPlot) {
+        this.gardenPlots.add(gardenPlot);
+    }
+
+    public void removeGardenPlot(GardenPlot gardenPlot) {
+        this.gardenPlots.remove(gardenPlot);
     }
 }
