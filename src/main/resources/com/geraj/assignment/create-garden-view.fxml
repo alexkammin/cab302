@@ -1,94 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.geraj.assignment.controller.CreateGardenController"
-            stylesheets="@create-garden.css" styleClass="garden-page"
-            prefWidth="1100" prefHeight="780">
-    <top><fx:include source="nav-bar.fxml"/></top>
+<BorderPane prefHeight="540.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geraj.assignment.controller.CreateGardenController">
+    <top>
+        <fx:include source="nav-bar.fxml" />
+    </top>
+
     <center>
-        <ScrollPane fx:id="formScroll" fitToWidth="true" hbarPolicy="NEVER" styleClass="garden-scroll">
-            <content>
-                <VBox spacing="18" alignment="TOP_CENTER">
-                    <padding><Insets top="28" right="24" bottom="28" left="24"/></padding>
-                    <VBox maxWidth="880" spacing="7">
-                        <Hyperlink text="Gardens / Create garden" onAction="#onCancel" styleClass="garden-breadcrumb"/>
-                        <Label text="Create a new garden" styleClass="garden-title" wrapText="true"/>
-                        <Label text="Set up your garden and its empty planter boxes. Add crops after the garden is created."
-                               styleClass="garden-muted" wrapText="true"/>
-                    </VBox>
-                    <FlowPane hgap="20" vgap="20" alignment="TOP_CENTER" maxWidth="880">
-                        <VBox fx:id="detailsCard" prefWidth="600" spacing="12" styleClass="garden-card">
-                            <Label text="Garden details" styleClass="garden-section-title"/>
-                            <Label text="Required information is marked with an asterisk." styleClass="garden-muted" wrapText="true"/>
-                            <VBox spacing="5">
-                                <Label text="Garden name *"/>
-                                <TextField fx:id="nameField" promptText="e.g. Kelvin Grove Community Garden" accessibleText="Garden name, required"/>
-                                <Label fx:id="nameError" styleClass="garden-error" wrapText="true" visible="false" managed="false"/>
-                            </VBox>
-                            <VBox spacing="5">
-                                <Label text="Location *"/>
-                                <TextField fx:id="locationField" promptText="e.g. Kelvin Grove, Brisbane" accessibleText="Location, required"/>
-                                <Label fx:id="locationError" styleClass="garden-error" wrapText="true" visible="false" managed="false"/>
-                            </VBox>
-                            <Separator/>
-                            <VBox spacing="4">
-                                <Label text="Garden layout" styleClass="garden-section-title"/>
-                                <Label text="Use metres for the overall garden footprint." styleClass="garden-muted" wrapText="true"/>
-                            </VBox>
-                            <GridPane hgap="16">
-                                <columnConstraints>
-                                    <ColumnConstraints percentWidth="50" hgrow="ALWAYS"/>
-                                    <ColumnConstraints percentWidth="50" hgrow="ALWAYS"/>
-                                </columnConstraints>
-                                <VBox spacing="5" GridPane.columnIndex="0" minWidth="0">
-                                    <Label text="Width (m) *"/>
-                                    <TextField fx:id="widthField" promptText="e.g. 12" accessibleText="Garden width in metres, required"/>
-                                    <Label fx:id="widthError" styleClass="garden-error" wrapText="true" visible="false" managed="false"/>
-                                </VBox>
-                                <VBox spacing="5" GridPane.columnIndex="1" minWidth="0">
-                                    <Label text="Length (m) *"/>
-                                    <TextField fx:id="lengthField" promptText="e.g. 8" accessibleText="Garden length in metres, required"/>
-                                    <Label fx:id="lengthError" styleClass="garden-error" wrapText="true" visible="false" managed="false"/>
-                                </VBox>
-                            </GridPane>
-                            <VBox spacing="5">
-                                <Label text="Number of planter boxes *"/>
-                                <Label text="Empty boxes are created when the garden is saved." styleClass="garden-muted" wrapText="true"/>
-                                <TextField fx:id="boxesField" promptText="e.g. 4" accessibleText="Number of planter boxes, required"/>
-                                <Label fx:id="boxesError" styleClass="garden-error" wrapText="true" visible="false" managed="false"/>
-                            </VBox>
-                            <Label fx:id="messageLabel" styleClass="garden-message" wrapText="true" maxWidth="Infinity" visible="false" managed="false"/>
-                            <HBox spacing="10" alignment="CENTER_RIGHT">
-                                <padding><Insets top="10"/></padding>
-                                <Button text="Cancel" onAction="#onCancel" cancelButton="true"/>
-                                <Button fx:id="createButton" text="Create garden" onAction="#onCreateGarden"
-                                        defaultButton="true" styleClass="garden-primary"/>
-                            </HBox>
-                        </VBox>
-                        <VBox fx:id="helpColumn" prefWidth="260" spacing="14">
-                            <VBox spacing="10" styleClass="garden-card">
-                                <Label text="ORGANISER ACCESS" styleClass="garden-eyebrow"/>
-                                <Label text="You'll become the garden admin" styleClass="garden-section-title" wrapText="true"/>
-                                <Label text="This garden will be linked to your signed-in account." styleClass="garden-muted" wrapText="true"/>
-                                <Label fx:id="organiserLabel" text="Sign in to create a garden." wrapText="true"/>
-                            </VBox>
-                            <VBox spacing="12" styleClass="garden-card">
-                                <Label text="What happens next" styleClass="garden-section-title"/>
-                                <Label text="1  Save the garden" wrapText="true"/>
-                                <Label text="2  Create its empty planter boxes" wrapText="true"/>
-                                <Label text="3  Open the garden overview" wrapText="true"/>
-                                <Separator/>
-                                <Label text="Crops can be added after garden creation." styleClass="garden-tip" wrapText="true" maxWidth="Infinity"/>
-                            </VBox>
-                            <Label text="Before you save: enter a name, location, positive dimensions and at least one planter box."
-                                   styleClass="garden-note" wrapText="true" maxWidth="Infinity"/>
-                        </VBox>
-                    </FlowPane>
-                </VBox>
-            </content>
-        </ScrollPane>
+        <VBox>
+            <Label fx:id="createGardenLabel" text="Create Garden Page" />
+        </VBox>
     </center>
 </BorderPane>

@@ -1,36 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.geraj.assignment.controller.GardenContoller"
-            stylesheets="@create-garden.css" styleClass="garden-page" prefWidth="1100" prefHeight="780">
-    <top><fx:include source="nav-bar.fxml"/></top>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.geraj.assignment.controller.GardenContoller">
+    <top>
+        <fx:include source="nav-bar.fxml"/>
+    </top>
+
     <center>
-        <ScrollPane fitToWidth="true" styleClass="garden-scroll">
-            <content>
-                <VBox spacing="18">
-                    <padding><Insets top="28" right="24" bottom="28" left="24"/></padding>
-                    <Label text="Garden overview" styleClass="garden-title"/>
-                    <HBox spacing="12" alignment="CENTER_LEFT">
-                        <ComboBox fx:id="gardenSelector" promptText="Choose a garden" prefWidth="380"
-                                  onAction="#onGardenSelected" accessibleText="Choose a saved garden"/>
-                        <Button text="Create garden" onAction="#onCreateGarden" styleClass="garden-primary"/>
-                    </HBox>
-                    <Label fx:id="statusLabel" text="Choose a garden to see its planter boxes." wrapText="true"/>
-                    <VBox fx:id="overviewCard" spacing="12" styleClass="garden-card" visible="false" managed="false">
-                        <Label fx:id="gardenName" styleClass="garden-section-title" wrapText="true"/>
-                        <Label fx:id="gardenDetails" styleClass="garden-muted" wrapText="true"/>
-                        <Label fx:id="roleLabel" styleClass="garden-tip" wrapText="true"/>
-                        <Separator/>
-                        <Label text="Planter boxes" styleClass="garden-section-title"/>
-                        <Label text="These are the garden's saved empty boxes. Crop planting is the next feature."
-                               styleClass="garden-muted" wrapText="true"/>
-                        <FlowPane fx:id="boxPane" hgap="12" vgap="12"/>
-                    </VBox>
-                    <Button text="Back to garden list" onAction="#onBack"/>
-                </VBox>
-            </content>
-        </ScrollPane>
+        <Label text="empty for the moment"/>
     </center>
+
 </BorderPane>
