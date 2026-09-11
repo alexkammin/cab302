@@ -3,7 +3,7 @@ package com.geraj.assignment.model;
 import java.util.ArrayList;
 
 /**
- * A simple model class representing a Garden with width, length, ph, light, nutriments, salinity, texture, depth, soil humidity, contributors and plants.
+ * A simple model class representing a garden plot with width, length, ph, light, nutriments, salinity, texture, depth, soil humidity, contributors and plants.
  */
 public class GardenPlot {
     private double width;
@@ -19,16 +19,16 @@ public class GardenPlot {
 //    private ArrayList<Plant> plants;
 
     /**
-     * Constructs a new Garden with the specified width, length, ph, light, nutriments, salinity, texture, depth, soil humidity, contributors and plants.
-     * @param width The width of the garden.
-     * @param length The length of the garden.
-     * @param ph The ph of the garden.
-     * @param light The light of the garden.
-     * @param nutriments The nutriments of the garden.
-     * @param salinity The salinity of the garden.
-     * @param texture The texture of the garden.
-     * @param depth The depth of the garden.
-     * @param soilHumidity The soil humidity of the garden.
+     * Constructs a new garden plot with the specified width, length, ph, light, nutriments, salinity, texture, depth and soil humidity.
+     * @param width the width of the garden plot
+     * @param length the length of the garden plot
+     * @param ph the ph of the garden plot
+     * @param light the light of the garden plot
+     * @param nutriments the nutriments of the garden plot
+     * @param salinity the salinity of the garden plot
+     * @param texture the texture of the garden plot
+     * @param depth the depth of the garden plot
+     * @param soilHumidity the soil humidity of the garden plot
      */
     public GardenPlot (double width,
             double length,
