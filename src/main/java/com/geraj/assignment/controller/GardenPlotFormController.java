@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 
 public class GardenPlotFormController {
 
-    // FXML fields matching your UI form
     @FXML private TextField widthField;
     @FXML private TextField lengthField;
     @FXML private TextField phField;
@@ -25,9 +24,8 @@ public class GardenPlotFormController {
     private GardenPlot newPlot = null;
 
     @FXML
-    private void handleSave() {
+    private void onCreate() {
         try {
-            // Parse inputs from TextFields
             double width = Double.parseDouble(widthField.getText());
             double length = Double.parseDouble(lengthField.getText());
             double ph = Double.parseDouble(phField.getText());
@@ -38,7 +36,6 @@ public class GardenPlotFormController {
             double depth = Double.parseDouble(depthField.getText());
             int soilHumidity = Integer.parseInt(soilHumidityField.getText());
 
-            // Create the plot using your specific constructor
             newPlot = new GardenPlot(
                     width, length, ph, light, nutriments,
                     salinity, texture, depth, soilHumidity
@@ -47,7 +44,6 @@ public class GardenPlotFormController {
             closeWindow();
 
         } catch (NumberFormatException e) {
-            // Show an error if the user typed text instead of numbers
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Invalid Input");
             alert.setHeaderText("Please enter valid numbers");
@@ -57,8 +53,8 @@ public class GardenPlotFormController {
     }
 
     @FXML
-    private void handleCancel() {
-        newPlot = null; // Ensure nothing gets passed back
+    private void onCancel() {
+        newPlot = null;
         closeWindow();
     }
 
