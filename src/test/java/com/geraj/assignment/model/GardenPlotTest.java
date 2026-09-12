@@ -145,23 +145,37 @@ public class GardenPlotTest {
         assertEquals(new ArrayList<Account>(), gardenPlot.getContributors());
     }
 
-//    @Test
-//    public void testGetPlants() {
-//        assertEquals(new ArrayList<Plant>(), garden.getPlants());
-//    }
-//
-//    @Test
-//    public void testAddPlant() {
-//        Plant newPlant = new Plant();
-//        gardenPlot.addPlant(newPlant);
-//        assertEquals(new ArrayList<Plant>(newPlant), garden.getPlants());
-//    }
-//
-//    @Test
-//    public void testRemovePlant() {
-//        Plant newPlant = new Plant();
-//        gardenPlot.addPlant(newPlant);
-//        garden.removePlant(newPlant);
-//        assertEquals(new ArrayList<Plant>(newPlant), garden.getPlants());
-//    }
+    @Test
+    public void testGetPlants() {
+        assertEquals(new ArrayList<Plant>(), gardenPlot.getPlants());
+    }
+
+    @Test
+    public void testAddPlant() {
+        Plant newPlant = new Plant(
+                "Potato",
+                4,
+                6,
+                5,
+                7000,
+                0.15
+        );
+        gardenPlot.addPlant(newPlant);
+        assertEquals(new ArrayList<Plant>(List.of(newPlant)), gardenPlot.getPlants());
+    }
+
+    @Test
+    public void testRemovePlant() {
+        Plant newPlant = new Plant(
+                "Potato",
+                4,
+                6,
+                5,
+                7000,
+                0.15
+        );
+        gardenPlot.addPlant(newPlant);
+        gardenPlot.removePlant(newPlant);
+        assertEquals(new ArrayList<Plant>(), gardenPlot.getPlants());
+    }
 }

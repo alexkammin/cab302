@@ -220,13 +220,25 @@ public class GardenPlot {
         this.contributors.remove(contributor);
     }
 
+    /**
+     * Gets the list of plants in the garden plot.
+     * @return the list of plants
+     */
+    public ArrayList<Plant> getPlants() {
+        return plants;
+    }
+
+    /**
+     * Adds a plant to the list of plants in the garden plot.
+     * @param plant the plant to add
+     */
     public void addPlant(Plant plant) {
         this.plants.add(plant);
     }
 
     /**
-     * Removes a plant from the list of plants assigned to the garden plot.
-     * @param plant the contributor to remove
+     * Removes a plant from the list of plants in the garden plot.
+     * @param plant the plant to remove
      */
     public void removePlant(Plant plant) {
         this.plants.remove(plant);
