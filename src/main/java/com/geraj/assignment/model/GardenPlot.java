@@ -16,7 +16,7 @@ public class GardenPlot {
     private double depth;
     private int soilHumidity;
     private ArrayList<Account> contributors;
-//    private ArrayList<Plant> plants;
+    private ArrayList<Plant> plants;
 
     /**
      * Constructs a new garden plot with the specified width, length, ph, light, nutriments, salinity, texture, depth and soil humidity.
@@ -49,7 +49,7 @@ public class GardenPlot {
         this.depth = depth;
         this.soilHumidity = soilHumidity;
         this.contributors = new ArrayList<>();
-//        this.plants = new ArrayList<>();
+        this.plants = new ArrayList<>();
     }
 
     /**
@@ -218,5 +218,17 @@ public class GardenPlot {
      */
     public void removeContributor(Account contributor) {
         this.contributors.remove(contributor);
+    }
+
+    public void addPlant(Plant plant) {
+        this.plants.add(plant);
+    }
+
+    /**
+     * Removes a plant from the list of plants assigned to the garden plot.
+     * @param plant the contributor to remove
+     */
+    public void removePlant(Plant plant) {
+        this.plants.remove(plant);
     }
 }
