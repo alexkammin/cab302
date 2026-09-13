@@ -10,9 +10,18 @@ public class GardenInfoContoller {
     @FXML private Label GardenName;
     @FXML private Label GardenLocation;
 
+    private Garden current_garden;
+
     public void setInfo(Garden garden) {
+        current_garden = garden;
         GardenName.setText(garden.getName());
         GardenLocation.setText(garden.getLocation());
+    }
+
+    @FXML
+    private void onJoin(ActionEvent actionEvent) {
+        GardenEditorController controller = SceneSwitcher.switchScene(actionEvent, "garden-editor-view.fxml");
+        controller.setGarden(current_garden);
     }
 
     @FXML

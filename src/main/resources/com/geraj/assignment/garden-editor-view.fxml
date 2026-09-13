@@ -9,7 +9,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.geraj.assignment.controller.GardenEditor">
+            fx:controller="com.geraj.assignment.controller.GardenEditorController">
     <top>
         <fx:include source="nav-bar.fxml"/>
     </top>

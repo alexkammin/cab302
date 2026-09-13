@@ -6,7 +6,7 @@ import com.geraj.assignment.model.GardenPlot;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class GardenEditor {
+public class GardenEditorController {
     private Garden current_garden;
 
     public void setGarden(Garden garden) {
