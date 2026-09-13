@@ -1,9 +1,11 @@
 package com.geraj.assignment.controller;
 
 import com.geraj.assignment.model.GardenPlot;
+import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -20,21 +22,45 @@ public class GardenPlotFormController {
     @FXML private TextField soilHumidityField;
 
     @FXML private Button saveButton;
+    @FXML private Label messageLabel;
 
     private GardenPlot newPlot = null;
 
     @FXML
+    private void initialize() {
+
+        /*
+         * Disable the Create Garden button while any required
+         * field is empty.
+         */
+        BooleanBinding emptyField =
+                widthField.textProperty().isEmpty()
+                        .or(lengthField.textProperty().isEmpty())
+                        .or(phField.textProperty().isEmpty())
+                        .or(lightField.textProperty().isEmpty())
+                        .or(nutrimentsField.textProperty().isEmpty())
+                        .or(salinityField.textProperty().isEmpty())
+                        .or(textureField.textProperty().isEmpty())
+                        .or(depthField.textProperty().isEmpty())
+                        .or(soilHumidityField.textProperty().isEmpty());
+
+        saveButton.disableProperty().bind(emptyField);
+    }
+
+    @FXML
     private void onCreate() {
+        messageLabel.setText("");
+
         try {
-            double width = Double.parseDouble(widthField.getText());
-            double length = Double.parseDouble(lengthField.getText());
-            double ph = Double.parseDouble(phField.getText());
-            int light = Integer.parseInt(lightField.getText());
-            int nutriments = Integer.parseInt(nutrimentsField.getText());
-            int salinity = Integer.parseInt(salinityField.getText());
-            int texture = Integer.parseInt(textureField.getText());
-            double depth = Double.parseDouble(depthField.getText());
-            int soilHumidity = Integer.parseInt(soilHumidityField.getText());
+            double width = parseDoubleField(widthField, "Width");
+            double length = parseDoubleField(lengthField, "Length");
+            double ph = parseDoubleField(phField, "pH");
+            int light = parseIntField(lightField, "Light");
+            int nutriments = parseIntField(nutrimentsField, "Nutriments");
+            int salinity = parseIntField(salinityField, "Salinity");
+            int texture = parseIntField(textureField, "Texture");
+            double depth = parseDoubleField(depthField, "Depth");
+            int soilHumidity = parseIntField(soilHumidityField, "Soil Humidity");
 
             newPlot = new GardenPlot(
                     width, length, ph, light, nutriments,
@@ -43,12 +69,24 @@ public class GardenPlotFormController {
 
             closeWindow();
 
+        } catch (IllegalArgumentException e) {
+            messageLabel.setText(e.getMessage());
+        }
+    }
+
+    private double parseDoubleField(TextField field, String fieldName) {
+        try {
+            return Double.parseDouble(field.getText());
         } catch (NumberFormatException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Invalid Input");
-            alert.setHeaderText("Please enter valid numbers");
-            alert.setContentText("Width, length, ph, and depth must be decimals. The rest must be whole numbers.");
-            alert.showAndWait();
+            throw new IllegalArgumentException(fieldName + " must be a valid decimal number.");
+        }
+    }
+
+    private int parseIntField(TextField field, String fieldName) {
+        try {
+            return Integer.parseInt(field.getText());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(fieldName + " must be a valid whole number.");
         }
     }
 

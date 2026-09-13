@@ -60,6 +60,10 @@
 
             </GridPane>
 
+            <Label fx:id="messageLabel"
+                   textFill="RED"
+                   wrapText="true"/>
+
             <HBox spacing="15.0" alignment="CENTER">
                 <Button fx:id="saveButton" text="Create Plot" onAction="#onCreate"/>
                 <Button text="Cancel" onAction="#onCancel"/>
