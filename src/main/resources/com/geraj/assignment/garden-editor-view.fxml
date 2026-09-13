@@ -7,6 +7,7 @@
 
 <?import javafx.scene.layout.BorderPane?>
 
+<?import javafx.scene.control.ListView?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.geraj.assignment.controller.GardenEditorController">
@@ -24,6 +25,8 @@
                         bottom="30.0"
                         left="30.0"/>
             </padding>
+
+            <ListView fx:id="plotListView" VBox.vgrow="ALWAYS"/>
 
             <Button text="Create New Garden Plot"
                     prefWidth="200.0"
