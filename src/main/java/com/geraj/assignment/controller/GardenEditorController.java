@@ -7,8 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
-import java.util.ArrayList;
-
 public class GardenEditorController {
     private Garden current_garden;
 
@@ -27,14 +25,15 @@ public class GardenEditorController {
 
     @FXML
     private void onCreateNewGardenPlot(ActionEvent actionEvent) {
-        GardenPlotFormController formController = SceneSwitcher.openModalAndWait(
+        CreateGardenPlotController createGardenPlotController = SceneSwitcher.openModalAndWait(
                 actionEvent,
-                "garden-plot-form-view.fxml",
+                "create-garden-plot-view.fxml",
                 "Create New Garden Plot"
         );
 
-        if (formController != null) {
-            GardenPlot newPlot = formController.getNewPlot();
+
+        if (createGardenPlotController != null) {
+            GardenPlot newPlot = createGardenPlotController.getNewPlot();
 
             if (newPlot != null) {
                 current_garden.addGardenPlot(newPlot);

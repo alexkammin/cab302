@@ -11,7 +11,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.geraj.assignment.controller.GardenPlotFormController">
+            fx:controller="com.geraj.assignment.controller.CreateGardenPlotController">
 
 <!--    <top>-->
 <!--        <fx:include source="nav-bar.fxml"/>-->

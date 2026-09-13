@@ -3,13 +3,12 @@ package com.geraj.assignment.controller;
 import com.geraj.assignment.model.GardenPlot;
 import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class GardenPlotFormController {
+public class CreateGardenPlotController {
 
     @FXML private TextField widthField;
     @FXML private TextField lengthField;
